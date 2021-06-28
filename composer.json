@@ -15,6 +15,7 @@
     ],
     "require": {
         "drupal/admin_toolbar": "^3.0",
+        "drupal/leaflet": "^2.1",
         "drupal/openstreetmap": "^1.0@beta",
         "drupal/pathauto": "^1.8",
         "drupal/token": "^1.9",
