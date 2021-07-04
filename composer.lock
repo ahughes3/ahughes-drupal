@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bcf0c3e7f0b0cc5b522429d37d2cf5a",
+    "content-hash": "154a5c4e6ef73d7ce5761afd36240d41",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1356,6 +1356,55 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
+            }
+        },
+        {
+            "name": "drupal/contentimport",
+            "version": "9.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/contentimport.git",
+                "reference": "8.x-9.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/contentimport-8.x-9.3.zip",
+                "reference": "8.x-9.3",
+                "shasum": "79303d86ef05754b72dd3ab263b78fa890de38c9"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-9.3",
+                    "datestamp": "1593703928",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dhayanandan",
+                    "homepage": "https://www.drupal.org/u/dhayanandan_k",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "suresh.senthatti",
+                    "homepage": "https://www.drupal.org/user/2668481"
+                }
+            ],
+            "description": "The simple Drupal module to import data from CSV to any content type",
+            "homepage": "https://drupal.org/project/contentimport",
+            "support": {
+                "source": "https://git.drupalcode.org/project/contentimport"
             }
         },
         {
