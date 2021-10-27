@@ -19,6 +19,7 @@
         "drupal/leaflet": "^2.1",
         "drupal/openstreetmap": "^1.0@beta",
         "drupal/pathauto": "^1.8",
+        "drupal/social_media_links": "^2.8",
         "drupal/token": "^1.9",
         "drupal/views_infinite_scroll": "^1.8",
         "drush/drush": "^10",
