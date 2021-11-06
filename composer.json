@@ -17,6 +17,7 @@
         "drupal/admin_toolbar": "^3.0",
         "drupal/asset_injector": "^2.8",
         "drupal/contentimport": "^9.3",
+        "drupal/entityqueue": "^1.2",
         "drupal/geofield": "^1.34",
         "drupal/leaflet": "^2.1",
         "drupal/openstreetmap": "^1.0@beta",
