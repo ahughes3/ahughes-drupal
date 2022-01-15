@@ -25,6 +25,7 @@
         "drupal/leaflet": "^2.1",
         "drupal/openstreetmap": "^1.0@beta",
         "drupal/pathauto": "^1.8",
+        "drupal/recurring_events": "^2.0@RC",
         "drupal/social_media_links": "^2.8",
         "drupal/token": "^1.9",
         "drupal/views_infinite_scroll": "^1.8",
@@ -70,6 +71,12 @@
         "sort-packages": true,
         "platform": {
             "php": "7.4"
+        },
+        "allow-plugins": {
+            "zaporylie/composer-drupal-optimizations": true,
+            "drupal/core-composer-scaffold": true,
+            "cweagans/composer-patches": true,
+            "composer/installers": true
         }
     }
 }
