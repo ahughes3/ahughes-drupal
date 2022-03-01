@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4389212875257eddaec360b8ef80883",
+    "content-hash": "2e16772592f8a8b6f262c2e0e737599f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3553,6 +3553,57 @@
             "homepage": "http://drupal.org/project/physical",
             "support": {
                 "source": "https://git.drupalcode.org/project/physical"
+            }
+        },
+        {
+            "name": "drupal/plyr",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/plyr.git",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/plyr-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "feadd7ba04a11d20ad39ef10fd7f38e0ad85276c"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1643559764",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Marcin Grabias (Graber)",
+                    "homepage": "https://www.drupal.org/u/graber",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Steffen Schlaer (IT-Cru)",
+                    "homepage": "https://www.drupal.org/u/it-cru",
+                    "role": "Co-Maintainer"
+                }
+            ],
+            "description": "Integrates Plyr library as a video field formatter.",
+            "homepage": "https://drupal.org/project/plyr",
+            "support": {
+                "source": "https://cgit.drupalcode.org/plyr",
+                "issues": "https://drupal.org/project/issues/plyr"
             }
         },
         {
@@ -8782,6 +8833,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/openstreetmap": 10,
+        "drupal/plyr": 15,
         "drupal/recurring_events": 5
     },
     "prefer-stable": true,
