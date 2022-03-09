@@ -32,6 +32,8 @@
         "drupal/google_analytics": "^4.0",
         "drupal/google_analytics_reports": "^4.0@alpha",
         "drupal/leaflet": "^2.1",
+        "drupal/media_entity_soundcloud": "^3.0",
+        "drupal/metatag": "^1.19",
         "drupal/openstreetmap": "^1.0@beta",
         "drupal/pathauto": "^1.8",
         "drupal/plyr": "^1.0@alpha",
