@@ -29,6 +29,7 @@
         "drupal/geofield_map": "^2.70",
         "drupal/gin": "^3.0",
         "drupal/google_analytics": "^4.0",
+        "drupal/google_analytics_reports": "^4.0@alpha",
         "drupal/leaflet": "^2.1",
         "drupal/openstreetmap": "^1.0@beta",
         "drupal/pathauto": "^1.8",
