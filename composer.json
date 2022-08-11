@@ -41,6 +41,7 @@
         "drupal/pathauto": "^1.8",
         "drupal/plyr": "^1.0@alpha",
         "drupal/recurring_events": "^2.0@RC",
+        "drupal/redirect": "^1.7",
         "drupal/social_media_links": "^2.8",
         "drupal/token": "^1.9",
         "drupal/views_infinite_scroll": "^1.8",
