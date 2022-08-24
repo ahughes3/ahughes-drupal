@@ -36,7 +36,7 @@
         "drupal/leaflet": "^2.1",
         "drupal/linkit": "^6.0@beta",
         "drupal/media_entity_soundcloud": "^3.0",
-        "drupal/metatag": "^1.19",
+        "drupal/metatag": "^1.21",
         "drupal/openstreetmap": "^1.0@beta",
         "drupal/pathauto": "^1.8",
         "drupal/plyr": "^1.0@alpha",
