@@ -36,6 +36,7 @@
         "drupal/google_analytics": "^4.0",
         "drupal/google_analytics_reports": "^4.0@alpha",
         "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/layout_custom_section_classes": "^1.0",
         "drupal/leaflet": "^2.1",
         "drupal/linkit": "^6.0@beta",
         "drupal/media_entity_soundcloud": "^3.0",
