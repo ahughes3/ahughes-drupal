@@ -17,6 +17,7 @@ description: 'A clean, accessible, and flexible Drupal front-end theme.'
 alt text: 'Screenshot of Alivero, Drupal front-end theme.'
 package: Core
 version: VERSION
+core_version_requirement: ^9
 libraries:
   - alivero/global-styling
 regions:
@@ -92,5 +93,3 @@ ckeditor_stylesheets:
   - css/theme/ckeditor-frame.css
 
 ckeditor5-stylesheets: false
-
-core_version_requirement: ^9
