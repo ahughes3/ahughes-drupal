@@ -1,100 +1,46 @@
-# How to sub-theme Olivero.
-Technically Olivero does not support sub-theming, in this document I'll walk you through copying a Olivero into a new theme and making changes to the CSS and JavaScript.
+# About Olivero
 
-## Why no sub-theming of Olivero?
-Olivero isn't quite stable in Drupal 9. We're still making lots of changes to the markup, which can screw up any CSS overrides that you have in place. Even after reaching stable, we likely won't support sub-theming immediately because of various non-critical technical debt issues that we want to fix.
+Olivero is the default theme for Drupal 10. It is a flexible, recolorable theme
+with a responsive and mobile-first layout, supporting 13 regions.
 
-## Steps to copy Olivero into a new theme.
-Instead of sub-theming, we're going to copy the core theme into a new theme.
+The Olivero theme is named after Rachel Olivero, a member of our community who
+died in 2019.
 
-You can do this using manual steps or by using the included script.
+This theme is not intended to be used as a base theme.
 
-<details>
- <summary><strong>Use the provided script to copy the theme</strong></summary>
- <hr>
- 
-### Run the build script.
+## About Rachel Olivero
 
-Note, this is  only tested on MacOS, and is heavily reliant on code from Stack Overflow. Contributions are welcome!
+This theme was created in memory of Rachel Olivero. Rachel engaged with the
+communities that she was involved in to make them more inclusive. As a techie
+who was also a blind, transgender lesbian, she understood the importance of
+greater diversity, inclusion, and belonging.
 
-1. Copy this repository into the Drupal's `/themes/` directory.
-2. Rename this directory into the your themes name.
-3. Use the terminal to `cd` into the theme's directory.
-4. run `sh ./build.sh` to start the process to generate the theme.
-5. Enter the name of the theme when prompted (example: `Mytheme`).
- <hr>
-</details>
+You can find a more detailed celebration of [Rachel's life on Drupal.org](
+https://www.drupal.org/forum/general/community-spotlight/2019-02-22/remembering-rachel-olivero),
+and from the [National Federation of the Blind (NFB)](
+https://nfb.org/images/nfb/publications/bm/bm19/bm1904/bm190405.htm) where she
+led many of their IT projects.
 
-<details>
- <summary><strong>Manually copy theme and rename files</strong></summary>
- <hr>
- 
-   ### Copy the theme directory.
+When looking for inspiration for a new default theme for Drupal, the community
+was inspired by Rachel's example. The front-end developers worked hard with the
+Drupal Accessibility Team, [as well as with the NFB](
+https://nfb.org/about-us/press-room/new-drupal-theme-honors-rachel-olivero) to
+make this theme an example. We wanted to build an attractive, modern, and very
+accessible theme that would have made Rachel proud.
 
-   1. Copy the `/core/themes/olivero` directory into the `/themes/` directory.
-   2. Rename the files in the new theme.
-      1. Change the directory name from `olivero` to the new theme name (in these example, we'll use `coco`). So rename the `olivero` directory to `coco` (Coco is my dogs name).
-      2. Rename the `olivero.info.yml` file to `coco.info.yml`
-      3. Rename `olivero.breakpoints.yml` file to `coco.breakpoints.yml`
-      4. Rename `olivero.libraries.yml` file to `coco.libraries.yml`
-      5. Rename `olivero.theme` file to `coco.theme`
-      6. Rename all of the `olivero` config within the theme's `config` directory to `coco`. For example, rename `block.block.olivero_account_menu.yml` to `block.block.coco_account_menu.yml`. There are a number of files in there to rename.
-      7. Rename `/src/OliveroPreRender.php` to `/src/CocoPreRender.php`.
-   3. Do a global search and replace for the name. When you search and replace, be case-sensitive
-      1. Search and replace `Olivero` with `Coco`.
-      2. Search and replace `olivero` with `coco`.
-   4. Within the `coco.info.yml` file, replace `experimental: true` with `core_version_requirement: ^9`.
-   5. Move all of the "block" config files (starting with "block") from `config/install` to `config/optional`.
-   6. Move the `core.date_format.coco_medium.info.yml` from `config/install` to `config/optional`.
+We hope you find inspiration in this theme and its origin story to stretch
+yourself to find ways to make your work more accessible to everyone. We also ask
+that you [engage with the Drupal community](
+https://www.drupal.org/node/add/project-issue/drupal), should you find ways to
+make it a better user experience for everyone. Yes, we want to meet the
+latest [WCAG recommendations](https://www.w3.org/WAI/standards-guidelines/wcag/),
+but know that this isn't the ceiling to reach too, but rather the floor to build
+on.
 
+Drupal has over 20 years of evolving with the internet, and know that this is a
+journey, where we can all strive to be better today than we were yesterday.
 
-   ### Copy the CSS and JavaScript compilation scripts.
-   Copy all of the files this repository into the new theme. These scripts will enable you to make change in the source files and have them compile down to regular CSS and JS.
+## About Drupal Theming
 
-   The most important files are:
-
-   * `package.json` file
-   * `yarn.lock` file
-   * `scripts/` directory - this contains the CSS and JS compilation scripts.
-
- <hr>
-</details>
-
-### Enable the new theme.
-You should now see the new theme listed under `appearance > themes`. Install the new theme and set it to be the default.
-
-It should look exactly like the default core Olivero theme.
-
-### Install Node dependencies.
-First make sure you have [Node](https://nodejs.org/en/download/), and [Yarn](https://classic.yarnpkg.com/en/docs/install/) installed.
-
-Then run `yarn install` to install the dependencies.
-
-### Make a change to the CSS styles.
-Within the theme you'll notice both regular `*.css` files and also `*.pcss.css` files. The files that you want to modify are the `*.pcss.css` files. These PostCSS files will be made into browser-compatible CSS by running the compilation scripts.
-
-1. Open up the `/css/base/variables.pcss.css`.
-2. Change some of the blue color's hex values down near line 132.
-3. To generate the CSS run `yarn build:css`.
-
-Note you can also watch CSS by running `yarn watch:css`.
-
-See the scripts section within the `package.json` file for more commands.
-
-### Make a change to the JavaScript.
-Similar to CSS, there are two JavaScript files for each file:
-
-* `*.es6.js` - These are the files that you will modify. They are written using modern JavaScript.
-* `*.js` - These are the IE11 compatible JavaScript files generated by running the compilation scripts. Do not directly modify these files.
-
-You compile changes to the JavaScript files by running `yarn watch:js` and `yarn build:js`.
-
-### How to remove IE11 (and Opera Mini support).
-Internet Explorer 11 and Opera Mini do not support CSS Variables (aka CSS Custom properties). This results in making new features (such as dark mode) very hard to implement. To remove support for these browsers.
-
-1. Remove `"last 1 Explorer version",` from line 95 in `package.json`.
-2. Remove `"last 1 OperaMini version",` from line 99 in `package.json`.
-3. Search the codebase and remove instances of importing the `variables.pcss.css` file. Examples:
-   1. `@import "../base/variables.pcss.css";` from `css/components/action-links.pcss.css`
-   2. `@import "../../base/variables.pcss.css";` from `css/components/navigation/nav-button-mobile.pcss.css`
-4. Run `yarn build` to regenerate the compiled CSS and JavaScript.
+For more information, see Drupal.org [theming guide](
+https://www.drupal.org/docs/develop/theming-drupal).
