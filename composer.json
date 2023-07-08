@@ -53,6 +53,7 @@
         "drupal/token": "^1.9",
         "drupal/upgrade_status": "^4.0",
         "drupal/views_infinite_scroll": "^1.8",
+        "drupal/xmlsitemap": "^1.4",
         "drush/drush": "^10",
         "pantheon-upstreams/upstream-configuration": "*",
         "zaporylie/composer-drupal-optimizations": "^1.1"
