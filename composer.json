@@ -16,6 +16,7 @@
     "require": {
         "drupal/address": "~1.0",
         "drupal/admin_toolbar": "^3.0",
+        "drupal/anchor_link": "^2.6",
         "drupal/asset_injector": "^2.8",
         "drupal/at_theme": "^1.4",
         "drupal/bootstrap5": "^1.1",
