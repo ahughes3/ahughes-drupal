@@ -14,7 +14,7 @@ name: Alivero
 type: theme
 base theme: false
 description: 'A clean, accessible, and flexible Drupal front-end theme.'
-alt text: 'Screenshot of Alivero, Drupal front-end theme.'
+alt text: 'Screenshot of Alivero 9, Drupal front-end theme.'
 package: Core
 version: VERSION
 core_version_requirement: ^9
