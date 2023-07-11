@@ -48,6 +48,7 @@
         "drupal/recurring_events": "^2.0@RC",
         "drupal/redirect": "^1.7",
         "drupal/robotstxt": "^1.5",
+        "drupal/schema_metatag": "^2.5",
         "drupal/show_title": "^2.0",
         "drupal/simple_timeline": "^1.2",
         "drupal/social_media_links": "^2.8",
