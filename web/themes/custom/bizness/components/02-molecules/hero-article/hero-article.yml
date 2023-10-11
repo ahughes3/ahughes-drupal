@@ -1,0 +1,10 @@
+hero__title: 'Article Title Displays Right Here Just Like This'
+hero__authors:
+  - name: 'Author Name'
+    url: '#'
+  - name: 'Author Name'
+    url: '#'
+  - name: 'Author Name'
+    url: '#'
+hero__date: 'November 1, 2021'
+hero__description: 'Deck or subtitle content displays here like this lorem ipsum dolor sit amet consectetur adipiscing elit donec augue tellus tincidunt'

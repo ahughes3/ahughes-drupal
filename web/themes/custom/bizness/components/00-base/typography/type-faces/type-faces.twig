@@ -1,0 +1,43 @@
+{% set type__base_class = 'cl-type' %}
+
+<div {{ bem('wrapper', [], type__base_class) }}>
+  {% include "@atoms/text/headings/_heading.twig" with {
+    heading_level: 1,
+    heading: typography_heading,
+    heading_base_class: type__base_class,
+  } %}
+  <ul {{ bem(type__base_class) }}>
+    {% for family in families %}
+      <li {{ bem('family', [], type__base_class) }}  style="font-family: {{ family.id }};">
+        <div {{ bem('row', [], type__base_class) }}>
+          <div {{ bem('inner', [], type__base_class) }}>
+            <span {{ bem('name', [], type__base_class) }}>{{ family.name }}</span>
+            <span {{ bem('usage', [], type__base_class) }}>{{ family.usage }}</span>
+          </div>
+          <div {{ bem('inner', [], type__base_class) }}>
+            <span {{ bem('description', [], type__base_class) }}>{{ family.description }}</span>
+          </div>
+        </div>
+        <div {{ bem('row', [], type__base_class) }}>
+          <div {{ bem('inner', [], type__base_class) }}>
+            <span {{ bem('sample', [], type__base_class) }}>Aa</span>
+            <ul {{ bem('font-styles', [], type__base_class) }}>
+              {% for style in family.styles %}
+                <li {{ bem('font-style', [], type__base_class) }}>
+                  <span style="font-weight: {{ style.weight }}; font-style: {{ style.style }}">
+                    {{ style.name }}
+                  </span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div {{ bem('inner', [], type__base_class) }}>
+            <span {{ bem('letters', [], type__base_class) }}>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</span>
+            <span {{ bem('numbers', [], type__base_class) }}>01 02 03 04 05 06 07 08 09 10</span>
+            <span {{ bem('characters', [], type__base_class) }}>~!@#$%^&*()_+`-={}|[]\:”;’<>?,./</span>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

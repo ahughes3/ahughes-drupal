@@ -1,0 +1,15 @@
+{% set link_url = item.url %}
+{% set link_base_class = 'link' %}
+{% set link_blockname = menu_class %}
+{% set link_modifiers = item_modifiers %}
+{% set link_attributes = { target: '_blank' } %}
+
+{% extends "@atoms/links/link/link.twig" %}
+  {% block link_content %}
+    {% include "@atoms/images/icons/_icon.twig" with {
+      icon_name: item.icon,
+      icon_blockname: menu_class,
+      icon_title: item.title,
+    } %}
+    <span {{ bem('text', [], menu_class) }}>{{ item.title }}</span>
+  {% endblock %}

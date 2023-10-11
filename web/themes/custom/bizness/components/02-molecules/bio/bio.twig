@@ -1,0 +1,67 @@
+{#
+ * Displays basic author information.
+ *
+ * Available variables:
+ * - bio__heading_level: Level of the heading used on the name.
+ * - bio__intro: Optional text.
+ * - bio__section_heading: Optional section title.
+ * - bio__name: Author's name.
+ * - bio__lastname: Author's last name.
+ * - bio__deck: Author's bio.
+ * - bio__body: Author's bio (other bio).
+ * - bio__image: Author's image.
+ * - bio__link: Custom link.
+ */
+#}
+{% set bio__base_class = 'bio' %}
+
+<div {{ bem(bio__base_class) }}>
+  {% include "@atoms/pattern/pattern.twig" %}
+  <div {{ bem('inner', [], bio__base_class) }}>
+    {% block image_content %}
+      {% if bio__image %}
+        {% include "@atoms/images/image/image.twig" with {
+          output_image_tag: true,
+          image_src: bio__image.src,
+          image_alt: bio__image.alt,
+        } %}
+      {% endif %}
+    {% endblock %}
+    {% if bio__intro %}
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        paragraph_modifiers: ['sm'],
+        paragraph_base_class: 'label',
+        paragraph_content: bio__intro,
+      } %}
+    {% endif %}
+    {% if bio__section_heading %}
+      {% include "@atoms/text/text/01-paragraph.twig" with {
+        paragraph_modifiers: ["sm"],
+        paragraph_base_class: "label",
+        paragraph_content: bio__section_heading,
+      } %}
+    {% endif %}
+    {% if bio__name %}
+      {% include "@atoms/text/headings/_heading.twig" with {
+        heading_modifiers: ['sm'],
+        heading_level: bio__heading_level,
+        heading: bio__name ~ ' ' ~ bio__lastname,
+      } %}
+    {% endif %}
+    {% if bio__deck %}
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        paragraph_modifiers: ['sm'],
+        paragraph_content: bio__deck,
+      } %}
+    {% endif %}
+    {% if bio__body %}
+      {{ bio__body|raw }}
+    {% endif %}
+    {% if bio__active %}
+      {% include "@atoms/links/link/link.twig" with {
+        link_url: bio__link,
+        link_content: 'More about ' ~ bio__name|split(' ')|first,
+      } %}
+    {% endif %}
+  </div>
+</div>

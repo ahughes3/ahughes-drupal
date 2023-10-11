@@ -1,0 +1,161 @@
+.brands {
+  width: 100%;
+  margin: 0 auto;
+  user-select: none;
+  position: relative;
+  touch-action: none;
+  overflow-x: hidden;
+  padding: space(2) 0;
+  cursor: default;
+}
+
+.brands:not(.animated) {
+  .brands__items {
+    margin: 0 space(1.5);
+    justify-content: space-between;
+
+    @include medium {
+      margin: 0 space(2);
+    }
+
+    @include large {
+      margin: 0;
+    }
+
+    @include xl {
+      margin: 0 space(4) 0 0;
+    }
+  }
+}
+
+.brands {
+  &::before {
+    left: -1px;
+    top: 0;
+
+    .intro-hero-primary & {
+      top: space(2);
+    }
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    z-index: 2;
+    width: px2rem(55);
+    height: px2rem(56);
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      clr(grayscale, 1000) 0%,
+      transparent 100%
+    );
+  }
+
+  &::after {
+    right: -1px;
+    top: 0;
+    transform: rotateZ(180deg);
+
+    .intro-hero-primary & {
+      top: space(2);
+    }
+  }
+
+  &.animated {
+    .brands__items {
+      animation: scroll-l 30s linear infinite;
+
+      [data-animation-pause='true'] & {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  .brands__item {
+    margin-right: px2rem(64);
+
+    @include large {
+      margin-right: px2rem(72);
+    }
+
+    @include xxl {
+      margin-right: px2rem(96);
+    }
+  }
+}
+
+html:not(.js) .brands {
+
+  // $small = 480px so max-width of one less
+  @media (max-width: 479px) {
+    .brands__item:nth-child(n + 4) {
+      display: none;
+    }
+  }
+
+  // $large = 960px so max-width of one less
+  @media (min-width: $small) and (max-width: 959px) {
+    .brands__item:nth-child(n + 5) {
+      display: none;
+    }
+  }
+
+  // $xl = 1280px so max-width of one less
+  @media (min-width: $large) and (max-width: 1278px) {
+    .brands__item:nth-child(n + 8) {
+      display: none;
+    }
+  }
+
+}
+
+html:not(.js) .intro-hero-primary__brands .brands {
+  @media (min-width: $xl) {
+    .brands__item:nth-child(n + 5) {
+      display: none;
+    }
+  }
+}
+
+.brands__items {
+  @include list-reset;
+
+  display: flex;
+  height: px2rem(56);
+  min-width: max-content;
+}
+
+.brands__item {
+  display: flex;
+  height: px2rem(56);
+  text-align: center;
+  align-items: center;
+
+  div {
+    height: 100%;
+  }
+
+  svg {
+    height: 100%;
+    width: auto;
+
+    path {
+      fill: clr(primary-dark, 400);
+
+      .intro-hero-tertiary__brands & {
+        fill: clr(grayscale, 500);
+      }
+    }
+  }
+}
+
+@keyframes scroll-l {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

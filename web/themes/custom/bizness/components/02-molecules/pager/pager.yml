@@ -1,0 +1,29 @@
+pager__uid: 0
+current: 4
+page_count: 3
+ellipses:
+  previous: true
+  next: true
+items:
+  first:
+    href: '?page=0'
+    attributes: ''
+  previous:
+    href: '#'
+    attributes: ''
+  next:
+    href: '#'
+    attributes: ''
+  last:
+    href: '?page=12'
+    attributes: ''
+  pages:
+    3:
+      href: '?page=2'
+      attributes: ''
+    4:
+      href: '?page=3'
+      attributes: ''
+    5:
+      href: '?page=4'
+      attributes: ''

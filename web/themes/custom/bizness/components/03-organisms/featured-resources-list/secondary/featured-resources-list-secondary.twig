@@ -1,0 +1,46 @@
+{#
+/**
+ * Available variables:
+ * - resources__title: Featured resources list title.
+ * - resources__link: Featured resources list custom link.
+ * - resources: Featured resources list items.
+ */
+#}
+
+{% set featured_resources_list__base_class = 'featured-resources-list-secondary' %}
+
+<div {{ bem(featured_resources_list__base_class) }} {{ attributes }}>
+  <div {{ bem('content-wrapper', [], featured_resources_list__base_class) }}>
+    <div {{ bem('title-link-container', [], featured_resources_list__base_class) }}>
+      {% if resources__title %}
+        {% include "@atoms/text/headings/_heading.twig" with {
+          "heading_level": 2,
+          "heading": resources__title,
+          "heading_modifiers": ["xs", 'resources'],
+        } %}
+      {% endif %}
+      {% if resources__link %}
+        {% include "@atoms/links/link/link.twig" with {
+          link_url: resources__link.href,
+          link_content: resources__link.text,
+        } %}
+      {% endif %}
+    </div>
+
+    {% block resources %}
+      {% embed "@organisms/grid/grid.twig" with {
+          grid_type: '3col',
+      } %}
+          {% block grid_content %}
+            {% for resource in resources %}
+              {% include "@molecules/featured-resource/secondary/featured-resource-secondary.twig" with {
+                resource__title: resource.resource__title,
+                resource__link: resource.resource__link,
+                resource__icon_type: resource.resource__icon_type
+              } %}
+          {% endfor %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  </div>
+</div>

@@ -1,0 +1,9 @@
+url: '#'
+name: Name Here
+image:
+  src: https://unsplash.it/190/190
+  alt: 'Bio square image'
+position: Position Title Displays Here
+pronouns:
+  - She
+  - Her

@@ -1,0 +1,39 @@
+{# 
+/**
+ * Available variables:
+ * - transcript__base_class - base classname of the wrapper.
+ */
+ #}
+
+{% set transcript__base_class = 'transcript' %}
+
+<div {{ bem(transcript__base_class)}}>
+  <a id="transcript" {{ bem('anchor', [], transcript__base_class)}}>
+    Transcript
+  </a>
+  <div {{ bem('heading', [], transcript__base_class) }}>
+    {% if transcript__heading %}
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        paragraph_modifiers: ['md'],
+        paragraph_base_class: 'label',
+        paragraph_content: transcript__heading,
+      } %}
+    {% endif %}
+    <div {{ bem('line', [], transcript__base_class) }}></div>
+  </div>
+  <div {{ bem('content', [], transcript__base_class) }}>
+    {% block transcript_content %}
+      <dl>
+        {% for item in transcript__items %}
+          <dt>{{ item.name }}</dt>
+          <dd>{{ item.teaser_text }}</dd>
+        {% endfor %}
+      </dl>
+    {% endblock %}
+  </div>
+  {% include "@atoms/buttons/button.twig" with {
+    button_type: 'button',
+    button_icon: 'transcript',
+    button_content: 'Show Full Transcript',
+  } %}
+</div>

@@ -1,0 +1,31 @@
+{% set spacing__base_class = 'cl-table' %}
+
+<div {{ bem('wrapper', [], spacing__base_class) }}>
+  {% include "@atoms/text/headings/_heading.twig" with {
+    heading_level: 1,
+    heading: spacing_heading,
+    heading_base_class: spacing__base_class,
+  } %}
+  <table {{ bem(spacing__base_class) }}>
+    <tr>
+      <th {{ bem('header', [], spacing__base_class) }}>Usage</th>
+      <th {{ bem('header', [], spacing__base_class) }}>rem</th>
+      <th {{ bem('header', [], spacing__base_class) }}>px</th>
+      <th {{ bem('header', [], spacing__base_class) }}>token name</th>
+      <th {{ bem('header', [], spacing__base_class) }}></th>
+    </tr>
+    {% for space in spacing %}
+      <tr {{ bem('body', [], spacing__base_class, ['clipboard-item']) }}
+        data-copy="{{ space.usage }}">
+        <td>{{ space.usage}}</td>
+        <td>{{ space.rem }}</td>
+        <td>{{ space.px }}</td>
+        <td>{{ space.tokenName }}</td>
+        <td>
+          <span class="cl-spacing-visualization" style="width: {{space.px}}">
+          </span>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>

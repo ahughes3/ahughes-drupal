@@ -1,0 +1,41 @@
+{# 
+/**
+ * Available variables:
+ * - link_list_secondary__base_class - base classname of the wrapper.
+ */
+ #}
+    
+{% set link_list_secondary__base_class = 'link-list-secondary' %}
+
+<div {{ bem(link_list_secondary__base_class, link_list_secondary__modifiers)}}>
+  {# Heading #}
+  {% if link_list_secondary_heading %}
+     {% include '@atoms/text/text/01-paragraph.twig' with {
+        paragraph_modifiers: ['md'],
+        paragraph_base_class: 'label',
+        paragraph_content: link_list_secondary_heading,
+      } %}
+  {% endif %}
+  {% if link_list_secondary__items %}
+    <ul {{ bem('items', [], link_list_secondary__base_class) }}>
+      {% for item in link_list_secondary__items %}
+        <li {{ bem('item', [], link_list_secondary__base_class) }}>
+          {% include "@atoms/links/link/link.twig" with {
+            link_url: item.link_url,
+            link_content: item.link_content,
+          } %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if link_list_secondary__link %}
+    <div {{ bem('see-more', [], link_list_secondary__base_class)}}>
+      {% include "@atoms/links/link/link.twig" with {
+        link_icon: 'arrow-down',
+        link_modifiers: ['jump'],
+        link_url: link_list_secondary__link.url,
+        link_content: link_list_secondary__link.text,
+      } %}
+    </div>
+  {% endif %}
+</div>

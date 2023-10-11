@@ -1,0 +1,10 @@
+items:
+  - title: 'RSS'
+    url: '/rss/feed'
+    icon: 'rss'
+  - title: 'Twitter'
+    url: 'https://twitter.com/bizness'
+    icon: 'twitter'
+  - title: 'Linkedin'
+    url: 'https://www.linkedin.com/company/bizness'
+    icon: 'linkedin'

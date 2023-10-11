@@ -1,0 +1,13 @@
+link_list_secondary_heading: 'Services area'
+link_list_secondary__items:
+  - link_content: 'Strategy'
+    link_url: '#'
+  - link_content: 'Desing'
+    link_url: '#'
+  - link_content: 'Development'
+    link_url: '#'
+link_list_secondary__link:
+  text: 'See all project services'
+  url: '#'
+link_list_secondary__modifiers:
+  - 'black'

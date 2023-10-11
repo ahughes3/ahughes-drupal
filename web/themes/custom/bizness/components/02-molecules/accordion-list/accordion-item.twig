@@ -1,0 +1,45 @@
+{% set accordion_item__base_class = 'accordion-item' %}
+{% set accordion_item__modifiers = accordion_item__modifiers|default([]) %}
+{% set index = loop.index|default(attributes.index) %}
+
+<li {{ bem(accordion_item__base_class, accordion_item__modifiers) }}>
+  <button {{ bem('heading', [], accordion_item__base_class) }}>
+    {% set episodeNumber = (index < 10 ? '0') ~ index ~ '.' %}
+    {% include '@atoms/text/text/01-paragraph.twig' with {
+      paragraph_modifiers: ['md'],
+      paragraph_content: episodeNumber,
+    } %}
+    {% include '@atoms/text/text/01-paragraph.twig' with {
+      paragraph_modifiers: ['lg'],
+      paragraph_base_class: 'info',
+      paragraph_content: accordion_item__heading,
+    } %}
+    {% include "@atoms/images/icons/_icon.twig" with {
+      icon_name: 'plus',
+    } %}
+  </button>
+  <div {{ bem('content', [], accordion_item__base_class) }}>
+    <div {{ bem('text', [], accordion_item__base_class) }}>
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        paragraph_modifiers: ['lg'],
+        paragraph_content: accordion_item__description,
+      } %}
+      {% if accordion_item__has_link %}
+        {% include "@atoms/links/link/link.twig" with {
+          link_url: accordion_item__link.url,
+          link_content: accordion_item__link.text,
+        } %}
+      {% endif %}
+    </div>
+    {% if accordion_item__has_image %}
+      <div {{ bem('image', [], accordion_item__base_class) }}>
+        {% block image_content %}
+          {% include "@atoms/images/image/_image.twig" with {
+            image_src: accordion_item__image.src,
+            image_alt: accordion_item__image.alt, 
+          } %}
+        {% endblock %}
+      </div>
+    {% endif %}
+  </div>
+</li>

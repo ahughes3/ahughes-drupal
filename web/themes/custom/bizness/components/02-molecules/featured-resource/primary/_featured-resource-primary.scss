@@ -1,0 +1,71 @@
+.featured-resource {
+  @include gradient(primary-dark, 200, 100);
+
+  display: grid;
+  position: relative;
+  column-gap: space(1.5);
+  padding: space(3.5) space(1.5);
+  grid-template-columns: repeat(6, 1fr);
+
+  @include small {
+    padding: space(4.5) space(2);
+  }
+
+  @include medium {
+    padding: px2rem(136) space(2) space(5.5);
+  }
+
+  @include large {
+    column-gap: space(2);
+    padding: px2rem(152) 0 space(6.5);
+    grid-template-columns: space(1) repeat(12, 1fr) space(1);
+  }
+
+  @include xl {
+    padding: px2rem(152) 0 space(6.5);
+    grid-template-columns: space(2.5) repeat(12, 1fr) space(2.5);
+  }
+
+  @include xxxl {
+    padding: px2rem(192) 0 px2rem(144);
+    grid-template-columns: 1fr repeat(12, 92px) 1fr;
+  }
+
+  .heading {
+    grid-column: 1/-1;
+    margin: 0 0 space(1.5);
+
+    @include large {
+      grid-column: 2/7;
+      margin: 0;
+    }
+
+    &::before {
+      margin-bottom: space(1.5);
+
+      @include small {
+        margin-bottom: space(2);
+      }
+
+      @include xl {
+        margin-bottom: space(2.5);
+      }
+    }
+  }
+
+  .info {
+    margin-bottom: space(2);
+    margin-top: 0;
+  }
+}
+
+.featured-resource__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-column: 1 / -1;
+
+  @include large {
+    grid-column: 8 / 13;
+  }
+}

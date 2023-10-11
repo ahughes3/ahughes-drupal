@@ -1,0 +1,25 @@
+images:
+  big:
+    image_url: '#'
+    image_sizes: '100vw'
+    image_src: 'https://unsplash.it/957/656'
+    image_alt: 'The big image'
+    image_caption: 'This is an image caption.'
+  medium:
+    image_url: '#'
+    image_sizes: '100vw'
+    image_src: 'https://unsplash.it/885/528'
+    image_alt: 'The medium image'
+    image_caption: 'This is an image caption.'
+  square:
+    image_url: '#'
+    image_sizes: '100vw'
+    image_src: 'https://unsplash.it/300'
+    image_alt: 'The square'
+    image_caption: 'This is an image caption.'
+  small:
+    image_url: '#'
+    image_sizes: '100vw'
+    image_src: 'https://unsplash.it/332/312'
+    image_alt: The small image'
+    image_caption: 'This is an image caption.'

@@ -1,0 +1,84 @@
+{% set vertical_list__base_class = 'vertical-list' %}
+
+<div {{ bem(vertical_list__base_class, vertical_list__modifiers, null, ['section']) }}>
+  <div {{ bem('wrapper', [], vertical_list__base_class) }}>
+      {# Heading #}
+      {% if vertical_list__heading %}
+        {% include "@atoms/text/headings/_heading.twig" with {
+          "heading_level": 2,
+          "heading": vertical_list__heading,
+          "heading_modifiers": [vertical_list__heading_size, vertical_list__heading_style],
+        } %}
+      {% endif %}
+    {# Subheading #}
+    {% if vertical_list__sub_heading %}
+      {% include "@atoms/text/text/01-paragraph.twig" with {
+        paragraph_modifiers: ['md'],
+        paragraph_content: vertical_list__sub_heading,
+      } %}
+    {% endif %}
+  </div>
+  <div {{ bem('content', [], vertical_list__base_class) }}>
+    {% if vertical_list__description %}
+      <div {{ bem('description', [], vertical_list__base_class) }}> 
+        {% include "@atoms/text/text/01-paragraph.twig" with {
+          paragraph_modifiers: ['lg'],
+          paragraph_content: vertical_list__description,
+        } %}
+      </div>
+    {% endif %}
+    {# Item list #}
+    {% block vertical_list %}
+      {% if vertical_list__list_heading %}
+      <div {{ bem('list-header-wrapper', [], vertical_list__base_class) }}>
+        <div {{ bem('list-heading', [], vertical_list__base_class) }}> 
+          {% include "@atoms/text/text/01-paragraph.twig" with {
+            paragraph_modifiers: ['md'],
+            paragraph_base_class: 'label',
+            paragraph_content: vertical_list__list_heading,
+          } %}
+        </div>
+        <div {{ bem('line', [], vertical_list__base_class) }}></div>
+      </div>
+      {% endif %}
+      {% if vertical_list__list %}
+        <ul {{bem('items', [], vertical_list__base_class)}}>
+          {% for item in vertical_list__list %}
+            <li {{bem('item', [], vertical_list__base_class)}}>
+              {% if item.list_item__icon %}
+                {% include "@atoms/images/icons/_icon.twig" with {
+                  icon_name: item.list_item__icon,
+                } %}
+              {% endif %}
+              {% if item.list_item__url %}
+                <a {{ bem('text-link', [], vertical_list__base_class) }} href={{ item.list_item__url }}>
+              {% endif %}
+                {% include '@atoms/text/text/01-paragraph.twig' with {
+                  paragraph_modifiers: ['lg'],
+                  paragraph_base_class: 'info',
+                  paragraph_content: item.list_item__text,
+                } %}
+                {% if item.list_item__subtitle %}
+                  {% include '@atoms/text/text/01-paragraph.twig' with {
+                    paragraph_modifiers: ['sm'],
+                    paragraph_base_class: 'label',
+                    paragraph_content: item.list_item__subtitle,
+                  } %}
+                {% endif %}
+              {% if item.list_item__url %}
+                </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endblock %}
+    {# CTA #}
+    {% if vertical_list__link %}
+      {% include "@atoms/links/link/link.twig" with {
+        link_url: vertical_list__link.url,
+        link_content: vertical_list__link.text,
+      } %}
+    {% endif %}
+  </div>
+</div>

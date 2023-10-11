@@ -1,0 +1,94 @@
+{#
+  # Available variables:
+  # - audio__source - Audio url.
+#}
+
+{{ attach_library('bizness/audio') }}
+
+{% set audio__base_class = 'audio' %}
+
+<div {{ bem('wrapper', [], audio__base_class) }}>
+  <div {{ bem(audio__base_class) }} {{ attributes }}>
+    <audio src="{{audio__source}}" preload="metadata"></audio>
+    <div {{ bem('play', [], audio__base_class) }}>
+      {% include "@atoms/buttons/button.twig" with {
+        button_url: '#',
+        button_type: 'button',
+        button_icon: 'play-fill',
+        button_modifiers: ['secondary'],
+      } %}
+    </div>
+    <div {{ bem('pause', [], audio__base_class) }}>
+      {% include "@atoms/buttons/button.twig" with {
+        button_url: '#',
+        button_icon: 'pause',
+        button_type: 'button',
+        button_modifiers: ['secondary'],
+      } %}
+    </div>
+    <span {{ bem('elapsed', [], audio__base_class) }}>0:00</span>
+    <span {{ bem('total', [], audio__base_class) }}>0:00</span>
+    <label {{ bem('visually-hidden') }} for="{{'audio-' ~ audio__id}}">{{'progress bar'|t }}</label>
+    <input {{ bem('timeline', [], audio__base_class) }} type="range" max="100" value="0" >
+    <div {{ bem('controls', [], audio__base_class) }}>
+      <div {{ bem('action', [], audio__base_class, ['toggle']) }}>
+        {% include "@atoms/buttons/button.twig" with {
+          button_icon: 'more',
+          button_type: 'button',
+          button_modifiers: ['secondary'],
+        } %}
+      </div>
+      <div {{ bem('items', [], audio__base_class) }}>
+        {% include "@atoms/buttons/button.twig" with {
+          button_content: '1x',
+          button_base_class: 'speed',
+          button_blockname: audio__base_class,
+        } %}
+        
+        <div {{ bem('action', [], audio__base_class) }}>
+
+          {% include "@atoms/buttons/button.twig" with {
+            button_type: 'link',
+            button_icon: 'download',
+            button_url: audio__source,
+            button_content: 'download',
+            button_modifiers: ['secondary'],
+          } %}
+        </div>
+        <div {{ bem('action', [], audio__base_class, ['transcript']) }}>
+          {% include "@atoms/buttons/button.twig" with {
+            button_type: 'link',
+            button_url: '#transcript',
+            button_icon: 'transcript',
+            button_content: 'transcript',
+            button_modifiers: ['secondary'],
+          } %}
+        </div>
+        <div {{ bem('action', [], audio__base_class, ['subscribe']) }}>
+          {% include "@atoms/buttons/button.twig" with {
+            button_icon: 'plus',
+            button_type: 'button',
+            button_content: 'subscribe',
+            button_modifiers: ['secondary'],
+          } %}
+          {% if audio__subscribe_menu %}
+            <ul {{ bem('subscribe-menu', [], audio__base_class) }}>
+              {% for menu_item in audio__subscribe_menu %}
+                <li {{ bem('subscribe-menu-item', [], audio__base_class) }}>
+                  {% include "@atoms/images/icons/_icon.twig" with {
+                    icon_name: menu_item.title
+                  } %}
+                  {% include "@atoms/links/link/link.twig" with {
+                    link_url: menu_item.url,
+                    link_modifiers: ['dark'],
+                    link_content: menu_item.title,
+                  } %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

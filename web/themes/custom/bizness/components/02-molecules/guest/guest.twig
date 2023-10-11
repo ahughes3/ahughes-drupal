@@ -1,0 +1,52 @@
+{#
+/**
+ * Displays guest basic information.
+ *
+ * Available variables:
+ * - guest__heading_level: Level of the heading used on the name.
+ * - guest__name: Guest's name.
+ * - guest__bio: Guest's bio.
+ * - guest__image: Guest's image.
+ * - guest__link: Custom link.
+ * - guest__external: Boolean to know if the guest is external.
+ */
+#}
+{% set guest__base_class = 'guest' %}
+{% set guest__class_modifier = guest__external ? 'external' : '' %}
+<div {{ bem(guest__base_class, [guest__class_modifier]) }}>
+  <div {{ bem('content', [], guest__base_class) }}>
+    {% if guest__name %}
+      {% include "@atoms/text/headings/_heading.twig" with {
+        heading_modifiers: ['md'],
+        heading_level: guest__heading_level,
+        heading: guest__name,
+      } %}
+    {% endif %}
+    <div {{ bem('image-wrapper', [], guest__base_class) }}>
+      {% block image_content %}
+        {% include "@atoms/images/image/image.twig" with {
+          output_image_tag: true,
+          image_src: guest__image.src,
+          image_alt: guest__image.alt,
+        } %}
+      {% endblock %}
+    </div>
+    {% if guest__external %}
+      <div {{ bem('bio', [], guest__base_class) }}>
+        {{ guest__bio|raw }}
+      </div>
+    {% else %}
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        paragraph_modifiers: ['lg'],
+        paragraph_content: guest__bio,
+      } %}
+    {% endif %}
+    {% if guest__link and not guest__external %}
+      {% include "@atoms/links/link/link.twig" with {
+        link_modifiers: ['inline'],
+        link_url: guest__link.href,
+        link_content: guest__link.text,
+      } %}
+    {% endif %}
+  </div>
+</div>

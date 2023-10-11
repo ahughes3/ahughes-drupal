@@ -1,0 +1,72 @@
+spacing_heading: Spacing
+spacing:
+  - usage: space(9.5);
+    tokenName: $size-spacing-14
+    rem: 9.5rem
+    px: 152px
+    example: something
+  - usage: space(7.5);
+    tokenName: $size-spacing-13
+    rem: 7.5rem
+    px: 120px
+    example: something
+  - usage: space(6.5);
+    tokenName: $size-spacing-12
+    rem: 6.5rem
+    px: 104px
+    example: something
+  - usage: space(6);
+    tokenName: $size-spacing-11
+    rem: 6rem
+    px: 96px
+    example: something
+  - usage: space(5);
+    tokenName: $size-spacing-10
+    rem: 5rem
+    px: 80px
+    example: something
+  - usage: space(4.5);
+    tokenName: $size-spacing-9
+    rem: 4.5rem
+    px: 72px
+    example: something
+  - usage: space(4);
+    tokenName: $size-spacing-8
+    rem: 4rem
+    px: 64px
+    example: something
+  - usage: space(3.5);
+    tokenName: $size-spacing-7
+    rem: 3.5rem
+    px: 56px
+    example: something
+  - usage: space(3);
+    tokenName: $size-spacing-6
+    rem: 3rem
+    px: 48px
+    example: something
+  - usage: space(2.5);
+    tokenName: $size-spacing-5
+    rem: 2.5rem
+    px: 40px
+    example: something
+  - usage: space(2);
+    tokenName: $size-spacing-4
+    rem: 2rem
+    px: 32px
+    example: something
+  - usage: space(1.5);
+    tokenName: $size-spacing-3
+    rem: 1.5rem
+    px: 24px
+    example: something
+  - usage: space(1);
+    tokenName: $size-spacing-2
+    rem: 1rem
+    px: 16px
+    example: something
+  - usage: space(0.5);
+    tokenName: $size-spacing-1
+    rem: 0.5rem
+    px: 8px
+    example: something

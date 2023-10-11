@@ -1,0 +1,53 @@
+.promo-card {
+  color: clr(grayscale, 0);
+  background-color: clr(grayscale, 1000);
+
+  .label {
+    margin-top: 0;
+  }
+
+  &__inner {
+    padding: space(4) space(1.5) space(3.5);
+
+    @include small {
+      padding-left: space(2);
+      padding-right: space(2);
+    }
+
+    @include large {
+      padding-right: space(3);
+    }
+
+    @include xl {
+      padding-left: space(2.5);
+    }
+  }
+
+  .label,
+  .paragraph {
+    margin-bottom: space(1.5);
+  }
+}
+
+.section__sidebar {
+  .promo-card {
+    @extend .sidebar__wrapper;
+
+    &__inner {
+      grid-column: 1 / -2;
+      padding-right: space(1.5);
+
+      @include small {
+        padding-right: space(2);
+      }
+
+      @include large {
+        padding-right: 0;
+      }
+
+      @include xl {
+        padding-left: space(2.5);
+      }
+    }
+  }
+}

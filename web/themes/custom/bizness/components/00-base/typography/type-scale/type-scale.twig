@@ -1,0 +1,47 @@
+{% set type__base_class = "cl-scale" %}
+
+<div {{ bem('wrapper', [], type__base_class) }}>
+  <ul {{ bem("scales", [], type__base_class) }}>
+    {% for scale in typography_scales %}
+      <li {{ bem("scale", [], type__base_class) }}>
+        {% include "@atoms/text/headings/_heading.twig" with {
+          heading_level: 2,
+          heading: scale.name,
+          heading_base_class: type__base_class,
+        } %}
+        <ul {{ bem("rows", [], type__base_class) }}>
+          {% for row in scale.rows %}
+            <li {{ bem("row", [], type__base_class) }}>
+              <ul {{ bem("items", [], type__base_class) }}>
+                {% for item in row.items %}
+                  <li {{ bem("item", [], type__base_class) }}>
+                    <span {{ bem("name", [], type__base_class) }} style="font-weight: {{ item.weight }}; font-size: {{ item.size }}px; line-height: {{ item.height }}px; letter-spacing: {{ item.spacing }}; text-transform: {{ item.transform }};">
+                      {{ item.name }}
+                    </span>
+                    <div {{ bem("details", [], type__base_class) }}>
+                      <span {{ bem("weight", [], type__base_class) }}>
+                        {{ item.weight_name }} ({{ item.weight }})
+                      </span>
+                      <span {{ bem("sizes", [], type__base_class) }}>
+                        {{ item.size }}/{{ item.height }}
+                      </span>
+                      <span {{ bem("spacing", [], type__base_class) }}>
+                        {{ item.spacing }}
+                      </span>
+                      {% if item.transform %}
+                        <span {{ bem("transform", [], type__base_class) }}>
+                          {{ item.transform }}
+                        </span>
+                      {% endif %}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+

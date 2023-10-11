@@ -1,0 +1,8 @@
+grid_label: 'Three column grid'
+grid_type: '3col'
+items:
+  - content: First grid item
+  - content: Second grid item
+  - content: Third grid item
+  - content: Fourth grid item
+  - content: Fifth grid item

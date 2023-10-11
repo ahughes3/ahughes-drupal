@@ -1,0 +1,20 @@
+.pattern--dots {
+  width: 100%;
+  display: block;
+  height: px2rem(40);
+  min-height: px2rem(40);
+  margin-top: space(3.5);
+  background-position: px2rem(10);
+  background-size: px2rem(14) px2rem(14);
+  background-image: radial-gradient(clr(primary-dark, 300), transparent 16%);
+
+  @include large {
+    height: 100%;
+    margin-top: 0;
+    background-size: px2rem(16) px2rem(16);
+  }
+}
+
+.pattern--dark {
+  background-image: radial-gradient(clr(grayscale, 600), transparent 16%);
+}

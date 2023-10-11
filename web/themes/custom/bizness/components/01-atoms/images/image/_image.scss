@@ -1,0 +1,83 @@
+@mixin image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+img,
+picture {
+  @include image;
+}
+
+figure {
+  max-width: fit-content;
+  margin: 0; /* override normalize */
+  position: relative;
+}
+
+.figure__caption {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  padding: 0 space(1);
+  font-size: fontsize(14);
+  color: clr(grayscale, 500);
+  background-color: clr(grayscale, 0);
+}
+
+.textures-demo {
+  display: flex;
+}
+
+/* TODO: BEM selectors should be applied to wysiwyg-created content */
+.text-long {
+  video {
+    max-width: 100%;
+    display: block;
+  }
+
+  .embedded-entity[data-entity-type=media] {
+    margin: space(3) 0;
+
+    @include xl {
+      max-width: calc(100% + 5rem);
+      margin-left: space(2.5) * -1;
+      margin-right: space(2.5) * -1;
+    }
+
+    &.align-right {
+      @include xl {
+        margin-left: 0;
+        padding-left: space(2.5);
+      }
+    }
+
+    &.align-left {
+      @include xl {
+        margin-right: 0;
+        padding-right: space(2.5);
+      }
+    }
+
+    &.align-left,
+    &.align-right {
+      margin-top: space(2);
+
+      @include large {
+        max-width: px2rem(300);
+      }
+
+      @include xl {
+        max-width: calc(100% + 2.5rem);
+      }
+    }
+
+    br {
+      display: none;
+    }
+  }
+}

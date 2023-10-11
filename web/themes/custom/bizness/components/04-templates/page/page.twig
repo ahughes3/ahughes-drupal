@@ -1,0 +1,31 @@
+
+{% set article__base_class = 'node-page' %}
+
+{% if parent %}
+  {% set breadcrumb = [{
+    url: parent.url,
+    text: parent.text,
+  }] %}
+  {% set breadcrumb = breadcrumb|merge([{
+    text: label,
+  }]) %}
+{% endif %}
+
+<article {{ bem(article__base_class, [], [], classes) }}>
+  {% embed "@templates/_default.twig" with {
+    has_sidebar: true,
+  } %}
+    {% block section_header %}
+      {% include "@molecules/hero-article/hero-article.twig" with {
+        hero__title: label,
+        hero__authors: content.author_names,
+        hero__description: content.field_deck[0],
+      } %}
+    {% endblock %}
+    {% block section_content %}
+      <div {{ bem('content', [], article__base_class) }}>
+        {{ content.body }}
+      </div>
+    {% endblock %}
+  {% endembed %}
+</article>

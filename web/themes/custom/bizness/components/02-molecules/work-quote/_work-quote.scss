@@ -1,0 +1,99 @@
+.work-quote {
+  color: clr(grayscale, 0);
+
+  .blockquote__main-wrapper {
+    grid-column: 1 / -1;
+    margin-left: space(1.5) * -1;
+
+    @include small {
+      margin-left: space(2) * -1;
+    }
+
+    @include medium {
+      grid-column: 1 / 5;
+    }
+
+    @include large {
+      grid-column: 1 / 9;
+    }
+
+    @include xxxl {
+      grid-column: 2 / 9;
+    }
+  }
+
+  .blockquote__wrapper {
+    padding-right: 0;
+
+    @include xxxl {
+      padding-right: space(2);
+    }
+  }
+
+  .blockquote {
+    letter-spacing: normal;
+  }
+}
+
+.work-quote__author-wrapper {
+  grid-column: 1 / -1;
+  margin-left: space(1.5);
+
+  @include small {
+    margin-left: space(2);
+  }
+
+  @include medium {
+    margin-left: 0;
+    grid-column: 5 / 7;
+  }
+
+  @include large {
+    grid-column: 10 / 14;
+  }
+
+  .icon {
+    width: px2rem(67);
+    height: px2rem(52);
+  }
+}
+
+.work-quote__author {
+  margin-top: space(2.5);
+  margin-bottom: px2rem(34);
+
+  @include medium {
+    margin-top: space(1);
+  }
+
+  .heading {
+    margin-top: 0;
+    color: clr(grayscale, 0);
+    margin-bottom: space(0.5);
+  }
+
+  .label {
+    color: clr(grayscale, 300);
+  }
+}
+
+// White variant
+.work-quote--white {
+  color: clr(grayscale, 1000);
+
+  .heading {
+    color: clr(grayscale, 1000);
+  }
+
+  .label {
+    color: clr(grayscale, 800);
+  }
+}
+
+// Layout inherited style.
+.layout--light,
+.layout--white {
+  .work-quote {
+    @extend .work-quote--white;
+  }
+}

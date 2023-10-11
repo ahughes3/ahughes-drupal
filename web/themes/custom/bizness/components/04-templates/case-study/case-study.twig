@@ -1,0 +1,78 @@
+{% set case_study__base_class = 'node-case-study' %}
+ {# {{ dump(content) }} #}
+<article {{ bem(case_study__base_class) }}>
+  {% embed "@templates/_default.twig" %}
+    {% block section_header %}
+      {% embed "@organisms/intro-hero/secondary/intro-hero-secondary.twig" with {
+        intro_hero__title: label,
+        intro_hero__modifiers: ['dark'],
+        intro_hero__deck: content.field_deck[0],
+        intro_hero__link: {
+          content: 'View the site',
+          url: content.field_case_study_site_link[0]['#url'].toString(),
+        },
+      } %}
+        {% block image_content %}
+          {{ content.field_hero_media }}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+    {% block section_content %}
+      <div {{ bem('content', [], case_study__base_class) }}>
+        <div {{ bem('intro-text', [], case_study__base_class) }}>
+          {{ content.field_lead }}
+        </div>
+        <div {{ bem('services-areas', [], case_study__base_class) }}>
+          {% set topic_tags = [] %}
+          {# Only render Design, Development, and Strategy topics #}
+          {% set design = true %}
+          {% set development = true %}
+          {% set strategy = true %}
+          {% for key, value in content.field_topics['#items'] %}
+            {# UI / UX Desig n#}
+            {% if value.target_id in [64, 1590] and design %}
+              {% set topic_tags = topic_tags|merge([{
+                link_content: 'Design',
+                link_url: '/services/design',
+              }]) %}
+              {% set design = false %}
+            {% endif %}
+            {# Development #}
+            {% if value.target_id in [65, 67] and development %}
+              {% set topic_tags = topic_tags|merge([{
+                link_content: 'Development',
+                link_url: '/services/development',
+              }]) %}
+              {% set development = false %}
+            {% endif %}
+            {# Strategy #}
+            {% if value.target_id == 62 and strategy %}
+              {% set topic_tags = topic_tags|merge([{
+                link_content: 'Strategy',
+                link_url: '/services/strategy',
+              }]) %}
+              {% set strategy = false %}
+            {% endif %}
+          {% endfor %}
+
+          {% include '@molecules/links-list/secondary/link-list-secondary.twig' with {
+            link_list_secondary_heading: 'Service areas',
+            link_list_secondary__items: topic_tags,
+            link_list_secondary__link: {
+              text: 'See all project services',
+              url: '#services',
+            },
+            link_list_secondary__modifiers: ['black']
+          } %}
+        </div>
+        <div {{ bem('seperator', [], case_study__base_class) }}></div>
+        <div {{ bem('main-body', [], case_study__base_class) }}>{{ content.body }}</div>
+      </div>
+    {% endblock %}
+    {% block section_footer %}
+      {{ content.field_team_members }}
+      {{ content.field_topics }}
+      {{ drupal_entity('webform', 'contact') }}
+    {% endblock %}
+  {% endembed %}
+</article>

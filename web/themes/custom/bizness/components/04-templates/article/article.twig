@@ -1,0 +1,58 @@
+{% set article__base_class = 'node-article' %}
+
+{% set node_type = node.getType() %}
+
+{% set breadcrumb = node_type == 'article' ?  [{
+    url: '/resources',
+    text: 'Resources',
+  }] : []
+%}
+
+{% set breadcrumb = breadcrumb|merge([{
+  url: node_type == 'article' ? '/resources?type%5Barticle%5D=article' : '/topics/news',
+  text: node_type == 'article' ? 'Articles' : 'News',
+}]) %}
+
+<article {{ bem(article__base_class, [], [], classes) }}>
+  {% embed "@templates/_default.twig" with {
+    has_sidebar: true,
+  } %}
+    {% block section_header %}
+      {% include "@molecules/hero-article/hero-article.twig" with {
+        hero__title: label,
+        hero__authors: content.author_names,
+        hero__description: content.field_deck[0],
+        hero__date: node.getCreatedTime|date("F j, Y"),
+      } %}
+    {% endblock %}
+    {% block section_content %}
+      <div {{ bem('content', [], article__base_class) }}>
+        {{ content.body }}
+        {{ content.field_topics }}
+      </div>
+    {% endblock %}
+    {% block section_sidebar %}
+      <div {{ bem('sidebar', [], article__base_class) }}>
+        {{ drupal_entity('block', 'footer_newsletter') }}
+        {% if content.field_related_links|render %}
+          <div {{ bem('related-links', [], article__base_class) }}>
+            {{ content.field_related_links }}
+          </div>
+        {% endif %}
+      </div>
+      <div {{ bem('authors', [], article__base_class) }}>
+        {{ content.about_authors }}
+      </div>
+    {% endblock %}
+    {% block section_footer %}
+      {% if drupal_view_result('you_may_also_enjoy', 'featured_resources') and node_type == 'article' %}
+        <section class="layout layout--light">
+          {{ drupal_view('you_may_also_enjoy', 'featured_resources') }}
+        </section>
+      {% endif %}
+      <section class="layout layout--white">
+        {{ drupal_entity('webform', 'contact') }}
+      </section>
+    {% endblock %}
+  {% endembed %}
+</article>

@@ -1,0 +1,42 @@
+{#
+ # Available variables:
+ # - sources: The attributes of the <source> tags for this <picture> tag.
+ # - img_element: The controlling image, with the fallback image in srcset.
+ # - output_image_tag: Whether or not to output an <img> tag instead of a <picture> tag.
+ #}
+
+{% set responsive_image_base_class = responsive_image_base_class|default('image') %}
+
+{% if image_caption %}
+  {% include "@atoms/images/image/figure.twig" with {
+    image_base_class: responsive_image_base_class,
+    image_modifiers: responsive_image_modifiers,
+    image_blockname: responsive_image_blockname,
+    image_srcset: image_srcset|default(img_element['#attributes'].srcset),
+    image_sizes: image_sizes|default(img_element['#attributes'].sizes),
+    image_src: image_src|default(img_element['#uri']),
+    image_alt: image_alt|default(img_element['#alt']),
+    image_title: image_title|default(img_element['#title']),
+    image_caption: image_caption,
+    image_url: image_url,
+  } %}
+{% else %}
+  {% if image_url %}
+    <a {{ bem(image_link_base_class, image_link_modifiers, image_link_blockname|default(image_figure_base_class)) }} href="{{ image_url }}">
+  {% endif %}
+    {% block image_content %}
+      {% include "@atoms/images/image/_image.twig" with {
+        image_base_class: responsive_image_base_class,
+        image_modifiers: responsive_image_modifiers,
+        image_blockname: responsive_image_blockname,
+        image_srcset: image_srcset|default(img_element['#attributes'].srcset),
+        image_sizes: image_sizes|default(img_element['#attributes'].sizes),
+        image_src: image_src|default(img_element['#uri']),
+        image_alt: image_alt|default(img_element['#alt']),
+        image_title: image_title|default(img_element['#title']),
+      } %}
+    {% endblock %}
+  {% if image_url %}
+    </a>
+  {% endif %}
+{% endif %}

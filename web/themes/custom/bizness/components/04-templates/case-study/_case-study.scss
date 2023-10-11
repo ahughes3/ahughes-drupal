@@ -1,0 +1,109 @@
+.node-case-study {
+  .section__content {
+    @include large {
+      grid-column: 2 / -1;
+    }
+  }
+
+  .text-long {
+    @include large {
+      grid-column: 1 / 9;
+      grid-row: 2 / 3;
+      padding-right: space(5.5);
+    }
+
+    @include xl {
+      padding: 0 space(5.5) 0 space(2.5);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    img:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .node-case-study__intro-text {
+    position: relative;
+  }
+
+  .node-case-study__intro-text {
+    @include large {
+      grid-column: 1 / 9;
+      grid-row: 1 / 2;
+      padding-right: space(1);
+    }
+
+    @include xl {
+      padding-right: 0;
+    }
+  }
+
+  .node-case-study__seperator {
+    width: 100%;
+    height: 1px;
+    background-color: clr(primary-dark, 200);
+    margin: space(3.5) 0;
+
+    @include small {
+      margin: space(4.5) 0;
+    }
+
+    @include large {
+      margin: space(5.5) 0;
+      grid-column: 1/13;
+    }
+
+    @include xl {
+      margin: space(6.5) 0;
+    }
+
+    @include xxxl {
+      margin: px2rem(144) 0;
+    }
+  }
+
+  .node-case-study__content {
+    position: relative;
+
+    @include large {
+      display: grid;
+      column-gap: space(2);
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto 1fr;
+    }
+
+    @include xl {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include xxxl {
+      grid-template-columns: repeat(12, 92px);
+    }
+  }
+
+  .node-case-study__services-areas {
+    @include large {
+      grid-column: 9 / 15;
+      grid-row: 1 / 2;
+      padding-left: 1.25rem;
+    }
+
+    @include xl {
+      grid-column: 10 / 16;
+    }
+  }
+
+  .node-case-study__main-body {
+    @include large {
+      grid-column: 1/8;
+    }
+
+    .text-long {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

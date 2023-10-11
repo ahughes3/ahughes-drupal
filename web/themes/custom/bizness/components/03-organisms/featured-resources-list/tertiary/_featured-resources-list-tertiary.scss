@@ -1,0 +1,36 @@
+.featured-resources-list {
+  @extend .section;
+}
+
+.featured-resources-list.featured-resources-list--tertiary {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @media (max-width: 959px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include large {
+    padding-bottom: space(2);
+  }
+
+  @include xl {
+    padding-bottom: space(3);
+  }
+}
+
+.featured-resources-list__items {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+
+  @include large {
+    grid-column: 2 / -2;
+    flex-direction: row;
+  }
+
+  .featured-resource-link {
+    flex: 1;
+  }
+}

@@ -1,0 +1,32 @@
+guests_title: Episode Guests
+guests:
+  - guest__heading_level: 2
+    guest__name: Tim Lehen
+    guest__bio: Tim is the Engineering Director of the Drupal Association.
+    guest__image:
+      src: https://unsplash.it/80/80
+      alt: 'Guest image'
+    guest__link:
+      text: 'Tim on Drupal.org'
+      href: https://google.com
+    guest__external: true
+  - guest__heading_level: 2
+    guest__name: Name Here
+    guest__bio: Person teaser text displays here like this. Fusce volutpat lectus et nisl consectetur finibus. In vitae scelerisque augue.
+    guest__image:
+      src: https://unsplash.it/80/80
+      alt: 'Guest image'
+    guest__link:
+      text: 'Tim on Drupal.org'
+      href: https://google.com
+    guest__external: true
+  - guest__heading_level: 2
+    guest__name: Name Here
+    guest__bio: Person teaser text displays here like this. Fusce volutpat lectus et nisl consectetur finibus. In vitae scelerisque augue.
+    guest__image:
+      src: https://unsplash.it/80/80
+      alt: 'Guest image'
+    guest__link:
+      text: 'Tim on Drupal.org'
+      href: https://google.com
+    guest__external: false

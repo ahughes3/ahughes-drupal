@@ -1,0 +1,31 @@
+// CSS-only select styling (from https://github.com/filamentgroup/select-css)
+
+.form-item__dropdown {
+  display: block;
+  position: relative;
+  @include border-bottom($focusClr: clr(secondary, 800), $borderWidth: 1.5px);
+
+  border-bottom: 1.5px solid clr(grayscale, 400);
+}
+
+.form-item__select {
+  cursor: pointer;
+  font-size: fontsize(18);
+  color: clr(grayscale, 400);
+  margin: 0;
+  outline: none;
+  padding: space(1) 0 space(0.5);
+  width: 100%;
+  border: none;
+
+  &:hover {
+    color: clr(grayscale, 1000);
+  }
+
+}
+
+select {
+  appearance: none;
+  background-color: unset;
+  background: url("data:image/svg+xml,%3Csvg width='18' height='9' viewBox='0 0 18 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.9671 1.5625L9.51401 8.3125C9.23276 8.59375 8.81089 8.59375 8.52964 8.3125L0.98276 1.5625C0.654635 1.28125 0.654635 0.812503 0.935885 0.531253C1.21714 0.203128 1.68589 0.203128 1.96714 0.484378L8.99839 6.76563L15.9828 0.484378C16.264 0.203128 16.7328 0.203128 17.014 0.531253C17.2953 0.812503 17.2953 1.28125 16.9671 1.5625Z' fill='currentColor'/%3E%3C/svg%3E%0A") no-repeat right 4px center;
+}

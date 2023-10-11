@@ -1,0 +1,64 @@
+ol {
+  padding: 0;
+  list-style: none;
+  counter-reset: li;
+
+  .cke_editable > & {
+    padding-left: px2rem(40);
+    list-style: decimal;
+  }
+}
+
+ul:not(.toolbar-menu):not(.stats-list__items):not(.image-list__primary-images-wrapper):not(.image-list__secondary-images-wrapper) {
+  padding: 0;
+  list-style: none;
+
+  .cke_editable > & {
+    padding-left: px2rem(40);
+    list-style-type: disc;
+  }
+}
+
+.list-item {
+  margin-bottom: space(1.5);
+  padding-left: space(2);
+}
+
+/* TODO: BEM selectors should be applied to wysiwyg-created content */
+.text-long {
+  ol,
+  ul {
+    li {
+      @extend .list-item;
+    }
+  }
+
+  ul li {
+    @extend .paragraph--lg;
+
+    position: relative;
+
+    &::before {
+      content: "\25CB";
+      color: clr(primary, 800);
+      font-size: fontsize(16);
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  ol li {
+    @extend .paragraph--lg;
+
+    position: relative;
+    counter-increment: li;
+
+    &::before {
+      content: counter(li) ".";
+      color: clr(primary, 800);
+      font-size: fontsize(16);
+      position: absolute;
+      left: 0;
+    }
+  }
+}

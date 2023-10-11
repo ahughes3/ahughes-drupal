@@ -1,0 +1,36 @@
+.tabs__link,
+.tabs__link--local-tasks {
+  border-bottom: none;
+  color: clr(grayscale, 1000);
+  display: block;
+  font-size: fontsize(16);
+  font-weight: $font-medium;
+  padding: space(1.5) space(2.5);;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  @include large {
+    border-left: none;
+    display: inline-block;
+    font-size: 1rem;
+    padding: space(0.5) space(1);
+    position: relative;
+    top: 1px;
+    width: auto;
+  }
+
+  @include border-bottom($hoverClr: clr(primary, 800));
+
+  &.is-active {
+    &::after {
+      content: '';
+      left: 0;
+      width: 100%;
+      bottom: 0;
+      position: absolute;
+      border-bottom: 2px solid clr(primary, 800);
+      transition: width 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+    }
+  }
+}

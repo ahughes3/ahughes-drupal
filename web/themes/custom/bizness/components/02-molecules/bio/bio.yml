@@ -1,0 +1,11 @@
+bio__heading_level: 2
+bio__intro: 'Optional Intro Text'
+bio__name: 'Heather'
+bio__lastname: 'Hawkins'
+bio__active: true
+bio__deck: Bio teaser text displays here like this. Fusce volutpat lectus et nisl consectetur finibus. In vitae scelerisque augue.
+bio__image:
+  src: https://unsplash.it/128/128
+  alt: 'Author image'
+bio__link: '#'
+bio__section_heading: 'About the author'

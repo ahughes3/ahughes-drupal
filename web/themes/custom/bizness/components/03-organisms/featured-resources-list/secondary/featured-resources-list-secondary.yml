@@ -1,0 +1,20 @@
+resources__title: 'Resources'
+resources__link:
+  text: 'See all'
+  href: '#'
+resources:
+  - resource__title: 'Resource Title Displays Here Like This'
+    resource__link:
+      text: 'Watch'
+      href: '#'
+    resource__icon_type: 'play'
+  - resource__title: 'Resource Title Displays Here Like This'
+    resource__link:
+      text: 'Listen'
+      href: '#'
+    resource__icon_type: 'headphones'
+  - resource__title: 'Resource Title Displays Here Like This'
+    resource__link:
+      text: 'Read'
+      href: '#'
+    resource__icon_type: 'bookmark'

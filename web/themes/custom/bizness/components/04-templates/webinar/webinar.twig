@@ -1,0 +1,68 @@
+{% set webinar__base_class = 'node-webinar' %}
+
+{% set webinar_cta_icon = 'play' %}
+{% set webform = content.field_webform[0] %}
+{% set webinar_link = content.field_webinar_link[0] %}
+{% set webinar_registration_link = content.field_webinar_registration_link[0] %}
+
+{% if webinar_link %}
+  {% set webinar_cta_link = webinar_link['#url'].toString() %}
+  {% set webinar_cta_title = 'Watch the Webinar' %}
+{% elseif webinar_registration_link %}
+  {% set webinar_cta_link = webinar_registration_link['#url'] %}
+  {% set webinar_cta_title = webinar_registration_link['#title'] %}
+{% endif %}
+
+{% if webform %}
+  {% set webinar_cta_icon = '' %}
+  {% set webinar_cta_link = "#download" %}
+{% endif %}
+
+{% set breadcrumb = [{
+  url: '/resources',
+  text: 'Resources',
+}, {
+  url: '/resources?type%5Bwebinar%5D=webinar',
+  text: 'Webinars',
+}] %}
+
+<article {{ bem(webinar__base_class, [], [], classes) }}>
+  {% embed "@templates/_default.twig" with {
+  has_sidebar: true,
+} %}
+    {% block section_header %}
+      {% include "@molecules/resource-node-hero/resource-node-hero.twig" with {
+        resource_lead: label,
+        resource_date: content.field_webinar_date[0]|render,
+        resource_cta: {
+          icon: webinar_cta_icon,
+          href: webinar_cta_link,
+          title: webinar_cta_title,
+        }
+      } %}
+    {% endblock %}
+    {% block section_content %}
+      <div {{ bem('content', [], webinar__base_class) }}>
+        {{ content.body }}
+        {{ content.field_episode_guests }}
+        {{ content.field_topics }}
+        {% if webform %}
+          <div id="download" {{ bem('webform', [], webinar__base_class) }}>{{ webform }}</div>
+        {% endif %}
+      </div>
+    {% endblock %}
+    {% block section_sidebar %}
+      {{ drupal_entity('block', 'footer_newsletter') }}
+      <div {{ bem('related-links', [], webinar__base_class) }}>
+        {{ content.field_related_links }}
+      </div>
+    {% endblock %}
+    {% block section_footer %}
+      {% if drupal_view_result('you_may_also_enjoy', 'featured_resources') %}
+        <section class="layout layout--light">
+          {{ drupal_view('you_may_also_enjoy', 'featured_resources') }}
+        </section>
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+</article>

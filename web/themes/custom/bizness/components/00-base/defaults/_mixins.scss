@@ -1,0 +1,185 @@
+/*
+ * General Mixins (put specific ones in component files where applicable)
+*/
+
+/* Mixin - Clearfix.
+ * Adds clearfix based on http://bourbon.io/docs/#clearfix
+ * use example =   @include cleafix
+*/
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+$outer-container-break: $small;
+
+/// Mixin - Wrapper
+/// Outer container mixin for large screens
+@mixin wrapper(
+  $container-max-width: $max-width,
+  $outer-container-break: $small,
+  $v-margin: 0,
+  $v-padding: 0,
+  $h-padding: space(1),
+  $h-padding-large: $h-padding
+) {
+  max-width: #{$container-max-width};
+  width: 100%;
+  margin: #{$v-margin} auto;
+  padding: #{$v-padding} #{$h-padding};
+
+  @include breakpoint($outer-container-break) {
+    padding: #{$v-padding} #{$h-padding-large};
+  }
+
+  @include breakpoint($container-max-width) {
+    padding-left: calc(
+      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+    );
+    padding-right: calc(
+      #{$h-padding-large} + calc(-50vw + calc(#{$container-max-width} / 2))
+    );
+  }
+}
+
+/// Function - px to rem.
+@function px2rem($pixels) {
+  @if unitless($pixels) {
+    // @return #{$pixels / 16}rem;
+    @return calc($pixels / 16 * 1rem);
+  } @else {
+    @return calc($pixels / 16px * 1rem);
+  }
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li::before {
+    display: none;
+  }
+}
+
+// Animated bottom line.
+@mixin border-bottom($clr: transparent, $hoverClr: clr(grayscale, 1000), $focusClr: clr(grayscale, 1000), $borderWidth: 2px, $bottom: 0) {
+  border-bottom: calc($borderWidth / 2) solid $clr;
+
+  &::after{
+    content: '';
+    left: 0;
+    width: 0;
+    bottom: $bottom;
+    position: absolute;
+    transition: width 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+      border-bottom: $borderWidth solid $hoverClr;
+    }
+  }
+
+  &:focus-within {
+    &::after {
+      width: 100%;
+      border-bottom: $borderWidth solid $focusClr;
+    }
+  }
+}
+
+// Mixin - Full-width element within a constrained-width column.
+@mixin full-bleed {
+  margin-left: space(1.5) * -1;
+
+  @include small {
+    margin-left: space(2) * -1;
+  }
+
+  @include large {
+    margin-left: space(3) * -1;
+  }
+
+  @include xl {
+    margin-left: px2rem(112) * -1;
+  }
+
+  @include xxxl {
+    margin-left: calc((((100vw - px2rem(1456)) / 2) + 2.5rem) * -1);
+  }
+}
+
+/// Mixin - Visually hidden content.
+@mixin visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+
+}
+
+/* Mixin - Transition */
+$transition-duration-base: 0.3s;
+$transition-timing-function-base: ease-in-out;
+
+@mixin transition(
+  $transition-property: all,
+  $transition-duration: $transition-duration-base,
+  $transition-timing-function: $transition-timing-function-base
+) {
+  transition: $transition-property $transition-duration
+    $transition-timing-function;
+}
+
+/* Mixin - Multiline underline animation */
+@mixin multiline-underline-animation($color: clr(primary, 800), $size: px2rem(2)) {
+  span {
+    transition: background-size 300ms ease;
+    width: calc(100% + 1px); // IE fix
+    padding-bottom: px2rem(2);
+    background-image: linear-gradient(transparent calc(100% - (px2rem(2))), $color $size);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &:hover {
+    span {
+      background-size: 100% 100%;
+    }
+  }
+
+  &:focus {
+    span {
+      position: relative;
+      display: block;
+      padding-bottom: 0;
+
+      &::before {
+        content: "";
+        border: 4px solid clr(secondary, 600);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+    }
+  }
+}
+
+@mixin default-focus($thickness: 4px) {
+  outline: $thickness solid clr(secondary, 700);
+}

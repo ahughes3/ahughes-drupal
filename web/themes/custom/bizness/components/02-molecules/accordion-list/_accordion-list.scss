@@ -1,0 +1,129 @@
+// Accordion list.
+.accordion-list {
+  .link__content {
+    @extend .label--lg;
+  }
+}
+
+.accordion-list__items {
+  @include list-reset;
+}
+
+// Accordion item.
+.accordion-item {
+  @include border-bottom($clr: clr(grayscale, 200), $hoverClr: clr(grayscale, 1000), $focusClr: clr(grayscale, 1000));
+}
+
+.layout--dark {
+  .accordion-item {
+    @include border-bottom($clr: clr(grayscale, 700), $hoverClr: clr(grayscale, 0), $focusClr: clr(grayscale, 1000));
+  }
+}
+
+.accordion-item__heading {
+  outline: none;
+  color: inherit;
+
+  &:focus-visible {
+    .icon {
+      border: transparent;
+      outline: 2px solid clr(secondary, 700);
+    }
+  }
+
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  border-width: 0;
+  align-items: center;
+  background: transparent;
+  padding: space(2) 0 space(1);
+
+  .info {
+    flex: 1;
+    margin: 0;
+    text-align: start;
+    font-weight: $font-medium;
+  }
+
+  .paragraph {
+    margin: 0 space(1.5) 0 0;
+    color: clr(primary, 900) !important;
+  }
+
+  .icon {
+    width: px2rem(20);
+    height: px2rem(20);
+    transform: rotate(45deg);
+    color: clr(grayscale, 900);
+    transition: transform 200ms ease-in;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+}
+
+.accordion-item__content {
+  display: flex;
+  overflow-y: hidden;
+  flex-direction: column;
+  max-height: var(--buffered-height);
+  transition: max-height 500ms ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  @include medium {
+    flex-direction: row;
+  }
+}
+
+.accordion-item__text {
+  flex: 1;
+  display: table;
+  padding: 0 0 space(2.5) space(3);
+
+  .paragraph:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.accordion-item__image {
+  width: px2rem(280);
+  padding: 0 0 space(1) space(3);
+
+  @include medium {
+    width: px2rem(180);
+    padding: 0 0 space(1) space(2);
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.accordion-item.collapsed:not(.accordion-item--active) {
+  .accordion-item__heading {
+    .icon {
+      transform: rotate(0);
+
+      @media (prefers-reduced-motion: reduce) {
+        transform: none;
+      }
+    }
+  }
+
+  .accordion-item__content {
+    max-height: 0;
+  }
+}
+
+.accordion-item:hover {
+  .accordion-item__heading {
+    .icon {
+      color: clr(primary, 800);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override to display view mode featured resource secondary.
+ * Content type using this view mode: article, episode, webinar & white_paper.
+ *
+ * @see template_preprocess_node()
+ *
+ */
+#}
+
+{% if node.bundle == 'webinar' %}
+  {% set link_text = 'Watch' %}
+  {% set icon_type = 'play' %}
+{% elseif  node.bundle == 'episode' %}
+  {% set link_text = 'Listen' %}
+  {% set icon_type = 'headphones' %}
+{% else %}
+  {% set link_text = 'Read' %}
+  {% set icon_type = 'bookmark' %}
+{% endif %}
+
+{% include "@molecules/featured-resource/secondary/featured-resource-secondary.twig" with {
+  resource__title: label,
+  resource__link: {text: link_text, href: url},
+  resource__icon_type: icon_type
+} %}

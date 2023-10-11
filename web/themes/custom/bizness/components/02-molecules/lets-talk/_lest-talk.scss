@@ -1,0 +1,18 @@
+.lets-talk-component {
+  .heading {
+    margin-top: 0;
+    color: clr(grayscale, 0);
+  }
+}
+
+.lets-talk-component__subheading {
+  margin-bottom: space(2);
+  color: clr(grayscale, 0);
+}
+
+.lets-talk-component__description {
+  @include heading-decoration;
+
+  color: clr(grayscale, 0);
+  margin-bottom: space(2.5);
+}

@@ -1,0 +1,8 @@
+image_list__modifiers: 'full-width'
+primary_images:
+  - src: 'https://unsplash.it/957/656'
+    alt: 'The is an image alt text'
+    caption: 'Optional image caption displays here like this in multi-column format. Donec dictum tristique porta. Etiam convallis lorem lobortis nulla molestie convallis lorem lobortis nulla molestie, nec tincidunt ex ullamcorper. Quisque ultrices lobortis elit sed euismod. Duis in ultrices dolor.'
+secondary_images:
+  - src: 'https://unsplash.it/957/656'
+    alt: 'The is an image alt text'

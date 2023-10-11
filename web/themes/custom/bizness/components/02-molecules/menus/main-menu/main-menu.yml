@@ -1,0 +1,10 @@
+menu_title: ''
+menu_items:
+  - title: 'Work'
+    url: '#'
+  - title: 'Services'
+    url: '#'
+  - title: 'About'
+    url: '#'
+  - title: 'Resources'
+    url: '#'

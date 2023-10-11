@@ -1,0 +1,35 @@
+{#
+/**
+ * Available variables:
+ * - resource__title: Featured resource title.
+ * - resource__description: Featured resource description.
+ * - resource__link: Featured resource custom link
+ */
+#}
+
+{% set featured_resource__base_class = 'featured-resource' %}
+
+<div {{ bem(featured_resource__base_class) }} {{ attributes }}>
+  {% if resource__title %}
+    {% include "@atoms/text/headings/_heading.twig" with {
+      "heading_level": 2,
+      "heading": resource__title,
+      "heading_modifiers": ["xl", "decorated"],
+    } %}
+  {% endif %}
+  <div {{ bem('content', [], featured_resource__base_class) }}>
+    {% if resource__description %}
+      {% include "@atoms/text/text/01-paragraph.twig" with {
+        "paragraph_modifiers": ["lg"],
+        "paragraph_base_class": "info",
+        "paragraph_content": resource__description,
+      } %}
+    {% endif %}
+    {% if resource__link %}
+      {% include "@atoms/links/link/link.twig" with {
+        link_url: resource__link.href,
+        link_content: resource__link.text,
+      } %}
+    {% endif %}
+  </div>
+</div>

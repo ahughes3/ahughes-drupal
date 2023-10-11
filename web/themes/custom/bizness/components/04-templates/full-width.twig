@@ -1,0 +1,13 @@
+{% embed "@templates/_default.twig" %}
+  {% block section_header %}
+    {% include "@organisms/site/site-header/site-header.twig" %}
+  {% endblock %}
+  {% block section_content %}
+    {% include "@templates/placeholder/place-holder.twig" with {
+      "place_holder": "Primary Content",
+    } %}
+  {% endblock %}
+  {% block section_footer %}
+    {% include "@organisms/site/site-footer/site-footer.twig" %}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,85 @@
+.bio-header {
+  .heading--xl {
+    margin-bottom: space(1.5);
+    margin-top: 0;
+
+    @include small {
+      font-size: fontsize(48);
+    }
+
+    @include xxl {
+      font-size: fontsize(62);
+    }
+  }
+}
+
+.bio-header__sub-heading {
+  @include small {
+    align-items: center;
+    display: flex;
+  }
+
+  .heading {
+    font-size: fontsize(14);
+    margin-bottom: space(0.5);
+    margin-top: 0;
+
+    @include small {
+      font-size: fontsize(18);
+      margin-bottom: 0;
+      line-height: fontsize(24);
+      padding-right: space(1);
+    }
+  }
+
+  .paragraph {
+    color: clr(grayscale, 800);
+    margin-bottom: 0;
+
+    @include small {
+      font-size: fontsize(18);
+      border-left: 1px solid clr(primary-dark, 300);
+      line-height: fontsize(24);
+      padding-left: space(1);
+    }
+  }
+}
+
+.bio-header__pronouns-social {
+  align-items: center;
+  column-gap: px2rem(26);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: space(2.5);
+  margin-top: space(2);
+  row-gap: px2rem(28);
+
+  @include large {
+    margin-bottom: space(3.5);
+  }
+}
+
+.bio-header__pronouns-list:not(.toolbar-menu) {
+  background-color: clr(grayscale, 50);
+  display: inline-flex;
+  margin: 0;
+  padding: space(0.5);
+
+  li {
+    @extend .paragraph--lg;
+
+    border-right: 1px solid clr(primary-dark, 300);
+    color: clr(grayscale, 600);
+    font-weight: $font-medium;
+    padding: 0 space(0.5);
+    text-transform: uppercase;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+}

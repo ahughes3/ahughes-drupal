@@ -1,0 +1,9 @@
+expertise__heading: 'Sally’s Expertise'
+expertise__heading_level: 2
+expertise__image:
+  src: https://unsplash.it/416/432
+  alt: 'Expertise image'
+expertise_list: 
+  - text: 'HR Strategy'
+  - text: 'Creative Problem Solving'
+  - text: 'Comp & Benefits'

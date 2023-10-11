@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Overwrite from web/modules/contrib/eck/templates/eck-entity.html.twig
+ */
+#}
+
+{% include "@molecules/stats/stats.twig" with {
+  stats__heading: content.field_text.0['#context'].value,
+  stats_description: content.field_description_plain_long.0['#context'].value,
+} %}

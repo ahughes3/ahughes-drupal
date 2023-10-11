@@ -1,0 +1,63 @@
+{% set featured_case_study__base_class = 'featured-case-study' %}
+{% set featured_case_study__modifiers = featured_case_study__modifiers|default([]) %}
+
+{% if featured_case_study__graphic %}
+  {% set featured_case_study__modifiers = featured_case_study__modifiers|merge(['graphic']) %}
+{% endif %}
+
+<div {{ bem(featured_case_study__base_class, featured_case_study__modifiers) }}>
+  {# Image #}
+  {% if featured_case_study__image %}
+    <div {{ bem('image', [], featured_case_study__base_class) }} >
+      <a href="{{ featured_case_study__cta.url }}">
+      {% block featured_case_study__image %}
+        {% include '@atoms/images/image/_image.twig' with {
+          image_src: featured_case_study__image.src,
+          image_alt: featured_case_study__image.alt,
+        }%}
+      {% endblock %}
+      </a>
+    </div>
+  {% endif %}
+  {# Graphic #}
+  {% if featured_case_study__graphic %}
+    <div {{ bem('graphic', [], featured_case_study__base_class) }}>
+      <div {{ bem('circles', [], featured_case_study__base_class) }}>
+        {% include "@atoms/images/icons/_icon.twig" with {
+          icon_base_class: 'circle-vertical',
+          icon_name: 'circle-vertical-stripes',
+          icon_blockname: featured_case_study__base_class,
+        } %}
+        {% include "@atoms/images/icons/_icon.twig" with {
+          icon_base_class: 'circle-horizontal',
+          icon_name: 'circle-horizontal-stripes',
+          icon_blockname: featured_case_study__base_class,
+        } %}
+      </div>
+    </div>
+  {% endif %}
+  <div {{ bem('content', [], featured_case_study__base_class) }} >
+    {# Heading #}
+    {% if featured_case_study__heading %}
+      {% include "@atoms/text/headings/_heading.twig" with {
+        heading_level: 2,
+        heading: featured_case_study__heading,
+        heading_modifiers: ['xl', 'decorated']
+      } %}
+    {% endif %}
+    {# Description #}
+    {% if featured_case_study__body %}
+      {% include "@atoms/text/text/01-paragraph.twig" with {
+        paragraph_base_class: 'info',
+        paragraph_content: featured_case_study__body,
+      } %}
+    {% endif %}
+    {# Button #}
+    {% if featured_case_study__cta %}
+      {% include "@atoms/links/link/link.twig" with {
+          link_url: featured_case_study__cta.url,
+          link_content: featured_case_study__cta.title,
+      } %}
+    {% endif %}
+  </div>
+</div>

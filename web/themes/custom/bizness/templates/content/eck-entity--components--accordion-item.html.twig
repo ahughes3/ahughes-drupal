@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Overwrite from web/modules/contrib/eck/templates/eck-entity.html.twig
+ */
+#}
+{% embed "@molecules/accordion-list/accordion-item.twig" with {
+  accordion_item__heading: content.title[0],
+  accordion_item__has_link: content.field_link|render,
+  accordion_item__has_image: content.field_image|render,
+  accordion_item__description: content.field_body['#items'].value|striptags,
+  accordion_item__link: {
+    url: content.field_link[0]['#url'],
+    text: content.field_link[0]['#title'],
+  },
+} %}
+  {% block image_content %}
+    {{ content.field_image }}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,113 @@
+{#
+/**
+ * Available variables:
+ * - resource_title: Component title.
+ * - resource_content: Component content.
+ * - resource_cta (optional): Component cta.
+ * - resource_is_podcast (optional): Boolean to identify if it is a podcast.
+ * - resource_podcast_links (optional): Resource podcast links array.
+ * - resource_image (optional): Component custom image.
+ * - resource_is_podcast_episode (optional): Boolean to identify if it is a podcast episode.
+ * - resource_podcast_url: Parent node url.
+ * - resource_is_landing: Validate footer content position (default: false).
+ */
+#}
+{% set resource__base_class = 'resource-node-hero' %}
+{% set footer_content %}
+  {% if resource_cta.href or resource_cta_optional.href %}
+    <div {{ bem('footer', [], resource__base_class) }}>
+      {% if resource_cta.href %}
+        {% include "@atoms/buttons/button.twig" with {
+          button_type: 'link',
+          button_icon: resource_cta.icon,
+          button_url: resource_cta.href,
+          button_content: resource_cta.title,
+        } %}
+      {% endif %}
+      {% if resource_cta_optional.href %}
+        {% include "@atoms/links/link/link.twig" with {
+          link_url: resource_cta_optional.href,
+          link_content: resource_cta_optional.title,
+          link_modifiers: ['inline'],
+        } %}
+      {% endif %}
+    </div>
+  {% endif %}
+{% endset %}
+
+<div {{ bem(resource__base_class, resource__modifiers) }}>
+  {% embed "@templates/_default.twig" with {
+    has_sidebar: true,
+  } %}
+    {% block section_content %}
+      <div {{ bem('content', [], resource__base_class) }}>
+        {% if breadcrumb %}
+          {% include "@molecules/menus/breadcrumbs/breadcrumbs.twig" %}
+        {% endif %}
+        {% if resource_title %}
+          <div {{ bem('typewriter', [], resource__base_class, 'typewriter') }}>
+            {% include '@atoms/text/text/01-paragraph.twig' with {
+              paragraph_modifiers: ['md'],
+              paragraph_base_class: 'label',
+              paragraph_content: resource_title,
+            } %}
+          </div>
+        {% endif %}
+        {% if resource_lead %}
+          {% include "@atoms/text/headings/_heading.twig" with {
+            "heading_level": 1,
+            "heading": resource_lead,
+            "heading_modifiers": ["2xl"],
+          } %}
+        {% endif %}
+        {% if resource_content %}
+          {% include "@atoms/text/text/01-paragraph.twig" with {
+            paragraph_modifiers: ['xl'],
+            paragraph_content: resource_content,
+          } %}
+        {% endif %}
+        {% if resource_date %}
+          {% include "@atoms/text/text/01-paragraph.twig" with {
+            paragraph_modifiers: ['sm'],
+            paragraph_content: resource_date,
+          } %}
+        {% endif %}
+        {% if resource_podcast_links %}
+          {% include "@molecules/social-links/_social-links.twig" with {
+            links: resource_podcast_links,
+            is_podcast: resource_is_podcast
+          } %}
+        {% endif %}
+        {% if 'landing' in resource__modifiers %}
+          {{ footer_content }}
+        {% endif %}
+      </div>
+    {% endblock %}
+    {% block section_sidebar %}
+      {% if resource_image %}
+        {% if resource_podcast_url %}
+          <a href="{{resource_podcast_url}}">
+        {% endif %}
+        <div {{ bem('image', [resource_is_podcast_episode ? 'is-episode' : ''], resource__base_class) }}>
+          {% if resource_image.src %}
+            {% include "@atoms/images/image/image.twig" with {
+              image_src: resource_image.src,
+              image_alt: resource_image.alt,
+            } %}
+          {% else %}
+            {{ resource_image }}
+          {% endif %}
+        </div>
+        {% if resource_podcast_url %}
+          </a>
+        {% endif %}
+      {% endif %}
+      {% include "@atoms/pattern/pattern.twig" %}
+    {% endblock %}
+    {% block section_footer %}
+      {% if 'landing' not in resource__modifiers %}
+        {{ footer_content }}
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+</div>

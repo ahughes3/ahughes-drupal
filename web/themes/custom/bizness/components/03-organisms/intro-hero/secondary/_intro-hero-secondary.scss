@@ -1,0 +1,167 @@
+div.intro-hero-secondary {
+  @extend .section;
+
+  overflow: hidden;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+// Content.
+.intro-hero-secondary__content {
+  display: flex;
+  grid-column: 1 / -1;
+  padding: space(3.5) 0;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @include small {
+    padding: space(4.5) 0;
+  }
+
+  @include medium {
+    grid-column: 1 / 6;
+  }
+
+  @include large {
+    grid-column: 2 / 8;
+    padding: space(5.5) space(2) space(5.5) 0;
+  }
+
+  @include xl {
+    padding: space(6.5) space(2) space(6.5) 0;
+  }
+
+  @include xxxl {
+    padding: px2rem(144) space(2) px2rem(144) 0;
+  }
+
+  .typewriter {
+    width: fit-content;
+    color: clr(grayscale, 900);
+  }
+
+  .heading {
+    margin: space(1.5) 0;
+    font-size: fontsize(32);
+    line-height: fontsize(40);
+    color: clr(grayscale, 1000);
+
+    @include small {
+      font-size: fontsize(40);
+      line-height: px2rem(48);
+    }
+
+    @include large {
+      margin: space(2) 0;
+    }
+
+    @include xl {
+      margin: space(3) 0;
+      font-size: fontsize(48);
+      line-height: px2rem(56);
+    }
+  }
+
+  .button {
+    width: fit-content;
+  }
+}
+
+// Image.
+.intro-hero-secondary__image {
+  position: relative;
+  grid-column: 1 / -1;
+
+  @include large {
+    grid-column: 8 / 14;
+    margin-top: space(3);
+  }
+
+  @include xl {
+    grid-column: 8 / 14;
+    margin-top: space(4.5);
+  }
+
+  &::after {
+    content: '';
+    z-index: 0;
+    width: 100vw;
+    display: block;
+    top: space(1.5);
+    position: absolute;
+    margin-left: space(1.5) * -1;
+    height: calc(100% + space(4));
+    @include gradient(primary-dark, 300, 200);
+
+    @include small {
+      top: space(2);
+      margin-left: space(2) * -1;
+    }
+
+    @include large {
+      top: space(3);
+      margin-left: 0;
+    }
+
+    @include xl {
+      margin-left: 0;
+      top: space(4.5);
+    }
+  }
+
+  div,
+  picture {
+    height: 100%;
+  }
+
+  img {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    position: relative;
+
+    @include large {
+      padding: 0;
+      height: 100%;
+      min-height: px2rem(360);
+    }
+
+    @include xl {
+      padding: 0;
+      min-height: px2rem(416);
+    }
+
+    @include xxl {
+      min-height: px2rem(472);
+    }
+  }
+}
+
+// Layout inherited style.
+.layout--dark {
+  .intro-hero-secondary {
+    .heading,
+    .typewriter {
+      color: clr(grayscale, 0);
+    }
+
+    .button {
+      @extend .button--dark;
+    }
+  }
+}
+
+.intro-hero-secondary--dark {
+  background-color: clr(grayscale, 1000);
+
+  .heading,
+  .typewriter {
+    color: clr(grayscale, 0);
+  }
+
+  .button {
+    @extend .button--dark;
+  }
+}

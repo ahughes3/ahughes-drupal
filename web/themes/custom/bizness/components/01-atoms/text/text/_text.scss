@@ -1,0 +1,430 @@
+/* Create a mixin for paragraph styles that can be implemented
+ * in components with other classnames.
+*/
+// Paragraph styles.
+.paragraph--2xl {
+  @include body(32, 48, -0.02em);
+}
+
+.paragraph--xl {
+  @include body(20, 40, normal);
+
+  @include small {
+    @include body(24, 40, -0.01em);
+  }
+}
+
+.paragraph--lg {
+  @include body(20, 40, normal);
+}
+
+.paragraph--md {
+  @include body(18, 32, normal);
+}
+
+.paragraph--sm {
+  @include body(16, 24, 0.01em);
+}
+
+.paragraph--xs {
+  @include body(14, 24, 0.01em);
+}
+
+// Label styles.
+.label--lg {
+  @include label;
+
+  font-size: fontsize(14);
+  line-height: fontsize(16);
+
+  @include small {
+    font-size: fontsize(16);
+    line-height: fontsize(24);
+  }
+}
+
+.label--md {
+  @include label--md;
+}
+
+.label--sm {
+  @include label;
+
+  font-size: fontsize(12);
+  line-height: fontsize(16);
+}
+
+.label--xs {
+  @include label;
+
+  font-size: fontsize(10);
+  line-height: fontsize(16);
+}
+
+.paragraph {
+  margin: 0 0 1em;
+
+  u {
+    font-weight: 500;
+    text-underline-offset: space(0.5);
+    text-decoration-color: clr(primary, 800);
+  }
+
+  a {
+    @extend .link--inline;
+
+    display: initial;
+    word-break: break-word;
+  }
+}
+
+// Info styles.
+.info {
+  @include info(18, 32);
+}
+
+.info--md {
+  @include info(18, 24);
+
+  font-weight: $font-medium;
+}
+
+.info--lg {
+  @include info(20, 32);
+
+  font-weight: $font-normal;
+}
+
+// Blockquote styles.
+.blockquote__wrapper {
+  padding: 0 space(1.5);
+  font-weight: $font-medium;
+  border-left: space(1.5) solid clr(primary, 800);
+
+  @include small {
+    @include body(24, 40);
+
+    padding: 0 space(2);
+    border-left-width: space(2);
+  }
+
+  @include large {
+    padding: 0 space(3);
+    border-left-width: space(3);
+  }
+
+  @include xl {
+    padding: 0 space(4.5);
+    border-left-width: space(4.5);
+  }
+}
+
+.blockquote {
+  @include body(20, 40);
+
+  margin: 0;
+  font-weight: $font-medium;
+
+  @include small {
+    @include body(24, 40, -0.01em);
+  }
+
+  @include xl {
+    @include body(32, 48, -0.02em);
+  }
+
+  &--sm {
+    @include body(18, 32, normal);
+
+    @include xl {
+      @include body(20, 40, normal);
+    }
+  }
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .author,
+  cite {
+    @extend .label--lg;
+  }
+}
+
+// Code snippets styles.
+pre[class^="language-"] {
+  @include full-bleed;
+
+  width: 100vw;
+  display: grid;
+  overflow: auto;
+  min-width: 100%;
+  margin: space(3) 0;
+  position: relative;
+  break-inside: avoid;
+  counter-reset: linenumber;
+  background-color: clr(grayscale, 1000);
+  padding: space(2.5) 0 space(2.5) space(1.5);
+
+  @include small {
+    padding-left: space(2);
+  }
+
+  @include medium {
+    padding-top: space(4.5);
+    padding-bottom: space(4.5);
+  }
+
+  @include large {
+    width: initial;
+    padding-left: space(3);
+  }
+
+  @include xl {
+    padding-left: space(4.5);
+    margin-right: space(2.5) * -1;
+  }
+
+  code[class^="language-"] {
+    font-size: fontsize(16);
+    color: clr(grayscale, 0);
+    line-height: fontsize(32);
+    font-family: $font-monospace;
+    background-color: transparent;
+    padding: 0 space(1.5) 0 space(3);
+
+    @include small {
+      line-height: fontsize(40);
+    }
+
+    @include medium {
+      font-size: fontsize(18);
+      line-height: fontsize(40);
+    }
+
+    @include large {
+      padding-left: space(4.5);
+    }
+  }
+
+  .rule {
+    color: clr(primary, 500);
+  }
+
+  .important,
+  .function,
+  .property {
+    color: clr(secondary, 500);
+  }
+
+  .string,
+  .comment,
+  .punctuation {
+    color: clr(primary-dark, 600);
+  }
+
+  .keyword,
+  .selector {
+    color: clr(secondary-light, 400);
+  }
+
+  span[class^="hljs"] {
+    color: inherit;
+    font-weight: inherit;
+  }
+}
+
+:not(pre)>code {
+  font-size: inherit;
+  white-space: normal;
+  padding: space(0.5);
+  line-height: inherit;
+  overflow-wrap: break-word;
+  font-family: $font-monospace;
+  color: clr(primary-dark, 800);
+  background-color: clr(primary-dark, 100);
+}
+
+// Code snippets - line numbers.
+.line-numbers {
+  .line-numbers-rows {
+    top: 0;
+    left: 0;
+    width: space(3);
+    user-select: none;
+    position: absolute;
+    counter-reset: line;
+    pointer-events: none;
+    font-size: fontsize(14);
+    padding-top: space(2.5);
+    padding-bottom: space(2.5);
+    background-color: clr(grayscale, 900);
+
+    @include medium {
+      padding-top: space(4.5);
+      padding-bottom: space(4.5);
+    }
+
+    @include large {
+      width: space(4.5);
+    }
+
+    span {
+      display: block;
+      text-align: center;
+      pointer-events: none;
+      counter-increment: linenumber;
+
+      &::before {
+        padding: 0 space(0.5);
+        display: inline-block;
+        content: counter(line);
+        counter-increment: line;
+        color: clr(grayscale, 400);
+      }
+    }
+  }
+}
+
+.hr {
+  border-style: solid;
+  color: currentColor;
+  border-width: 1px 0 0;
+}
+
+mark {
+  color: clr(grayscale, 0);
+  background-color: clr(primary, 800);
+}
+
+/* TODO: BEM selectors should be applied to wysiwyg-created content */
+.text-long {
+  p {
+    @extend .paragraph--lg;
+
+    margin: 0 0 space(1.5);
+  }
+
+  iframe {
+    margin: space(1.5) 0;
+  }
+
+  hr {
+    @extend .hr;
+  }
+
+  .blockquote__wrapper {
+    @include full-bleed;
+
+    padding-right: 0;
+
+    @media (max-width: $xs)  {
+      border-left-width: space(0.5);
+    }
+
+    blockquote {
+      font-weight: $font-heavy;
+      margin: space(3) 0;
+
+      @include xxxl {
+        max-width: px2rem(880);
+        margin: space(4) 0 space(4) auto;
+      }
+    }
+
+    .bio {
+      padding-bottom: 0;
+
+      &::after {
+        display: none !important;
+      }
+    }
+  }
+
+  pre {
+    transform: translateX(space(1.5) * -1);
+
+    @include small {
+      transform: translateX(0);
+    }
+
+    code {
+      @include xxxl {
+        margin-left: auto;
+        width: px2rem(880);
+        padding-left: 0 !important;
+      }
+    }
+  }
+
+  li {
+    pre[class^=language-] {
+      transform: translateX(-3.5rem);
+
+      @include small {
+        transform: translateX(-2rem);
+      }
+
+      @include large {
+        margin-right: space(2) * -1;
+      }
+
+      @include xl {
+        margin-right: space(4.5) * -1;
+      }
+
+      code[class^=language-] {
+        @include large {
+          padding-left: space(4.5);
+        }
+      }
+    }
+  }
+}
+
+// Typewriter effect.
+@media (prefers-reduced-motion: no-preference) {
+  html .typewriter {
+    display: inline-block;
+
+    p,
+    h1 {
+      width: 0;
+      margin: 0 auto;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      transition: border-color 0.4s;
+      animation: typing 2s steps(80, end) 1s forwards;
+      // todo: revisit the flashing cursor as it relates to the animation toggle/reduced-motion
+      // border-right: 1.5px solid clr(primary, 800);
+      // animation: typing 2s steps(80, end) 1s forwards, typing-cursor 1s 6;
+    }
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+    padding-right: space(0.5);
+  }
+}
+
+// todo: revisit the flashing cursor as it relates to the animation toggle/reduced-motion
+/* The typewriter cursor effect */
+// @keyframes typing-cursor {
+//   from,
+//   to {
+//     border-color: transparent;
+//   }
+
+//   50% {
+//     border-color: clr(primary, 800);
+//   }
+// }

@@ -1,0 +1,48 @@
+.featured-case-study-secondary-list {
+  @extend .section;
+
+  background-color: clr(grayscale, 1000);
+}
+
+.featured-case-study-secondary-list__heading {
+  display: flex;
+  color: clr(grayscale, 0);
+  margin-bottom: space(2.5);
+  justify-content: space-between;
+  grid-column: 1/-1;
+
+  .label {
+    margin: 0;
+  }
+
+  @include large {
+    grid-column: 2/-2;
+  }
+}
+
+.featured-case-study-secondary-list__items {
+  @include list-reset;
+
+  grid-column: 1/-1;
+
+  @include medium {
+    display: grid;
+    grid-column-gap: space(1.5);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include large {
+    grid-column-gap: space(2);
+    grid-column: 2/-2;
+  }
+
+  .featured-case-study-secondary-list__item:not(:last-child) {
+    .featured-case-study-secondary {
+      margin-bottom: space(2.5);
+
+      @include medium {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

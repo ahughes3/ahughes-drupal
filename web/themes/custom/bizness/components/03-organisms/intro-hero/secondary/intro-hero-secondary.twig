@@ -1,0 +1,58 @@
+{#
+/**
+ * Available variables:
+ * - intro_hero__deck: Header component.
+ * - intro_hero__title: Preheader label.
+ * - intro_hero__featured_content: Reference to featured content, including:
+ *   - content: Featured content title.
+ *   - url: Featured content url.
+ * - intro_hero__image: Image component, including:
+ *   - src: Image sources.
+ *   - alt: Image Alt Text.
+ * - intro_hero__link: CTA element, including:
+ *   - content: CTA link text.
+ *   - url: CTA link url.
+ * - intro_hero__brands: Image list.
+ */
+#}
+
+{% set intro_hero__base_class = 'intro-hero-secondary' %}
+
+<div {{ bem(intro_hero__base_class, intro_hero__modifiers) }} {{ attributes }}>
+  <div {{ bem('content', [], intro_hero__base_class) }}>
+    {% if intro_hero__title %}
+      <div {{ bem('typewriter', [], intro_hero__base_class, 'typewriter') }}>
+        {% include '@atoms/text/text/01-paragraph.twig' with {
+          paragraph_modifiers: ['md'],
+          paragraph_base_class: 'label',
+          paragraph_content: intro_hero__title,
+        } %}
+      </div>
+    {% endif %}
+    {% if intro_hero__deck %}
+      {% include "@atoms/text/headings/_heading.twig" with {
+        heading_level: 1,
+        heading: intro_hero__deck,
+        heading_modifiers: ['2xl'],
+      } %}
+    {% endif %}
+    {% if intro_hero__link %}
+      {% include "@atoms/buttons/button.twig" with {
+        button_type: 'link',
+        button_icon: 'arrow',
+        button_url: intro_hero__link.url,
+        button_content: intro_hero__link.content,
+      } %}
+    {% endif %}
+  </div>
+  <div {{ bem('image', [], intro_hero__base_class) }}>
+    {% block image_content %}
+      {% if intro_hero__image %}
+        {% include "@atoms/images/image/image.twig" with {
+          image_src: intro_hero__image.src,
+          image_alt: intro_hero__image.alt,
+        } %}
+      {% endif %}
+    {% endblock %}
+  </div>
+</div>

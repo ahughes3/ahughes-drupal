@@ -1,0 +1,5 @@
+card__title: 'Promo Title'
+card__body: 'Promo body text displays here and should be concise messaging to explain the value of the CTA.'
+card__cta:
+  title: 'CTA Text'
+  url: '#'

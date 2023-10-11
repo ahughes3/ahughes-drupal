@@ -1,0 +1,353 @@
+.intro-hero-primary {
+  @extend .section;
+
+  overflow-x: hidden;
+
+  @include large {
+    grid-auto-rows: 1fr;
+    grid-template-rows: 1fr px2rem(136);
+  }
+
+  &.has-animations {
+    @include large {
+      grid-template-rows: 24px 1fr px2rem(136);
+    }
+
+    @include xl {
+      grid-template-rows: 0 1fr px2rem(136);
+    }
+  }
+}
+
+// Using more specific selectors to avoid using
+// !important overrides due to the .section extend
+.layout__region .intro-hero-primary {
+  padding-bottom: 0;
+  padding-top: space(3.5);
+
+  @include small {
+    padding-top: space(4.5);
+  }
+
+  @include large {
+    padding-top: 0;
+  }
+}
+
+html:not(.js) {
+  noscript + #typewriter-effect {
+    display: none;
+  }
+
+  .intro-hero-primary__intro #typewriter-effect span.cursor {
+    animation: none;
+  }
+}
+
+// Intro.
+.intro-hero-primary__intro {
+  padding-top: 0;
+  grid-column: 1 / -1;
+  padding-bottom: space(3.5);
+
+  @include small {
+    padding-bottom: space(4.5);
+  }
+
+  @include large {
+    grid-column: 2 / 8;
+    padding: space(5.5) space(2) space(5.5) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  @include xl {
+    padding-top: space(6.5);
+    padding-bottom: space(6.5);
+  }
+
+  @include xxxl {
+    padding-top: px2rem(144);
+    padding-bottom: px2rem(144);
+  }
+
+  .has-animations & {
+    @include large {
+      grid-row: 2;
+    }
+  }
+
+  .label {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .heading {
+    margin: space(1.5) 0;
+
+    @include large {
+      margin: space(2) 0;
+    }
+
+    @include xl {
+      margin: space(3) 0;
+    }
+  }
+
+  #typewriter-effect {
+    position: relative;
+
+    [data-animation-pause='true'] & {
+      @extend .heading--xl;
+    }
+
+    #type-text {
+      background-color: clr(grayscale, 50);
+    }
+
+    .cursor {
+      display: inline-block;
+      color: clr(primary, 800);
+      margin-left: 0.1rem;
+      width: 3px;
+      animation: blink 1s infinite;
+      position: absolute;
+
+      [data-animation-pause='true'] & {
+        animation: none;
+      }
+    }
+  }
+
+  @keyframes blink {
+    0%  { background-color: clr(primary, 800); }
+    49% { background-color: clr(primary, 800); }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100%  { background-color: clr(primary, 800); }
+  }
+}
+
+// Featured content.
+.intro-hero-primary__featured-content {
+  position: relative;
+  grid-column: 1 / -1;
+
+  @include large {
+    display: flex;
+    grid-column: 8 / 14;
+    flex-direction: column;
+    margin-top: space(3);
+  }
+
+  @include xl {
+    grid-row: 1 / 3;
+    margin-top: space(4.5);
+  }
+
+  @include xxxl {
+    margin-top: px2rem(112);
+  }
+
+  .has-animations & {
+    @include xl {
+      grid-row: 2 / 4;
+    }
+  }
+
+  &::after {
+    content: '';
+    z-index: 0;
+    width: 100vw;
+    top: space(2);
+    display: block;
+    position: absolute;
+    margin-left: space(1.5) * -1;
+    height: calc(100% - space(2));
+    @include gradient(primary-dark, 300, 200);
+
+    @include small {
+      margin-left: space(2) * -1;
+    }
+
+    @include large {
+      margin-left: 0;
+      top: space(3);
+      height: calc(100% - space(3));
+    }
+
+    @include xl {
+      top: space(4.5);
+      height: calc(100% - space(4.5));
+    }
+  }
+}
+
+// Featured content - image.
+.intro-hero-primary__image {
+  min-height: 304px;
+
+  @include small {
+    min-height: 384px;
+  }
+
+  @include medium {
+    min-height: 528px;
+  }
+
+  @include large {
+    flex-grow: 1;
+    min-height: 352px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @include xl {
+    min-height: 520px;
+  }
+
+  @include xxxl {
+    min-height: 600px;
+  }
+
+  img {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    position: relative;
+
+    @include large {
+      padding: 0;
+      height: 100%;
+      // pos absolute so the image can be the container's
+      // min-height or grow to the height of the hero text
+      // content if taller
+      position: absolute;
+    }
+  }
+
+  div,
+  picture {
+    height: 100%;
+  }
+}
+
+// Featured content - heading.
+.intro-hero-primary__heading {
+  z-index: 1;
+  display: flex;
+  position: relative;
+  padding: space(2) 0;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include small {
+    align-items: center;
+    flex-direction: row;
+    padding: space(2.5) 0;
+  }
+
+  @include medium {
+    margin-top: auto;
+    height: max-content;
+  }
+
+  @include large {
+    margin: 0;
+  }
+
+  @include xl {
+    height: px2rem(136);
+  }
+
+  .heading {
+    flex: 1;
+    margin: 0;
+    padding-bottom: space(1.5);
+    color: clr(grayscale, 900);
+
+    @include small {
+      padding-bottom: 0;
+      padding-right: space(2);
+    }
+
+    @include large {
+      padding-left: space(2);
+    }
+
+    @include xl {
+      padding-left: space(3);
+    }
+  }
+
+  .button__icon {
+    color: clr(primary-dark, 500);
+  }
+}
+
+// Brands.
+.intro-hero-primary__brands {
+  display: flex;
+  position: relative;
+  align-items: center;
+  grid-column: 1 / -1;
+  margin-left: space(2) * -1;
+  margin-right: space(2) * -1;
+  background-color: clr(grayscale, 1000);
+
+  @include medium {
+    z-index: 2;
+  }
+
+  @include large {
+    margin: 0;
+    grid-row: 2;
+    margin-right: 0;
+    grid-column: 2 / 14;
+
+    &::before {
+      left: -25vw;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      top: 0;
+      width: 50vw;
+      z-index: -1;
+      height: 100%;
+      display: flex;
+      position: absolute;
+      background-color: clr(grayscale, 1000);
+    }
+
+    &::after {
+      right: -25vw;
+    }
+  }
+
+  @include xl {
+    grid-column: 2 / 8;
+    margin-right: space(2) * -1;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .has-animations & {
+    @include large {
+      grid-row: 3;
+    }
+  }
+
+  .brands__items.space-between {
+    @include xl {
+      padding-right: space(4);
+    }
+  }
+}

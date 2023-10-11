@@ -1,0 +1,123 @@
+.results-teaser__pre-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: space(1.5);
+  padding-left: px2rem(2);
+}
+
+.results-teaser__type-episode-wrapper {
+  display: flex;
+  margin-bottom: space(1.5);
+
+  @media (min-width: 419px) {
+    margin-bottom: 0;
+  }
+}
+
+.results-teaser__type-episode-wrapper--no-author {
+  margin-bottom: 0;
+}
+
+.results-teaser__type-episode-wrapper--episode-shows {
+  margin-bottom: space(1.5);
+
+  @media (min-width: 492px) {
+    margin-bottom: 0;
+  }
+}
+
+.results-teaser__type,
+.results-teaser__episode {
+  display: inline-block;
+  background-color: clr(grayscale, 50);
+  color: clr(primary-dark, 800);
+  padding: px2rem(4) space(0.5);
+  margin-right: px2rem(12);
+
+  @extend .label--sm;
+}
+
+.results-teaser__author-date-wrapper {
+  display: flex;
+}
+
+.results-teaser__author {
+  margin-right: space(1);
+
+  .paragraph {
+    display: inline;
+    color: clr(grayscale, 900);
+  }
+}
+
+.results-teaser__date {
+  display: inline-block;
+  padding-left: space(1);
+  border-left: 1px solid clr(primary-dark, 300);
+
+  .paragraph {
+    margin: 0;
+  }
+}
+
+.results-teaser__title-link {
+  @extend .heading--lg;
+  @include multiline-underline-animation;
+
+  display: block;
+  margin: 0;
+  text-decoration: none;
+  outline: none;
+
+  .title-link__icon {
+    display: none;
+  }
+}
+
+.results-teaser__description {
+  padding-left: px2rem(2);
+  margin: space(1) 0 space(1);
+
+  .paragraph {
+    margin: 0;
+    color: clr(grayscale, 600);
+  }
+
+  .paragraph--lg {
+    @include body(18, 32, normal);
+
+    @include small {
+      @include body(20, 40, normal);
+    }
+  }
+}
+
+.results-teaser__topics {
+  @include list-reset;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(0.5);
+  margin-left: px2rem(2);
+
+  .button--secondary {
+    padding: px2rem(4) space(0.5);
+    min-height: space(1.5);
+    height: space(1.5);
+
+    span::before {
+      content: '#';
+      color: clr(grayscale, 400);
+    }
+
+    span {
+      font-size: fontsize(12);
+      line-height: fontsize(16);
+    }
+  }
+}
+
+.results-teaser__hashtag-text {
+  color: clr(grayscale, 400);
+}

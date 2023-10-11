@@ -1,0 +1,27 @@
+{% set topic__base_class = 'node-topic' %}
+{% set breadcrumb = [{
+  url: '/resources',
+  text: 'See all Resources',
+}
+] %}
+
+<article {{ bem(topic__base_class, [], [], classes) }}>
+  {% embed "@templates/_default.twig" with {
+    has_sidebar: true,
+  } %}
+    {% block section_header %}
+      {% include "@molecules/resource-node-hero/resource-node-hero.twig" with {
+        resource_lead: label,
+        resource_content: 'Articles, Case Studies, Episodes, Webinars, and White Papers',
+      } %}
+    {% endblock %}
+    {% block section_content %}
+      <div {{ bem('content', [], topic__base_class) }}>
+        {{ drupal_view('topics', 'block_1', node.nid.value )}}
+      </div>
+    {% endblock %}
+    {% block section_sidebar %}
+      {{ drupal_entity('block', 'footer_newsletter') }}
+    {% endblock %}
+  {% endembed %}
+</article>

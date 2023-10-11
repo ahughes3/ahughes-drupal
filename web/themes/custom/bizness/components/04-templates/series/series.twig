@@ -1,0 +1,33 @@
+{% set article__base_class = 'node-series' %}
+{% set breadcrumb = [{
+  url: '/resources',
+  text: 'Resources',
+}, {
+  url: '/resources?type%5Barticle%5D=article',
+  text: 'Articles',
+}] %}
+
+<article {{ bem(article__base_class, [], [], classes) }}>
+  {% embed "@templates/_default.twig" with {
+    has_sidebar: true,
+  } %}
+    {% block section_header %}
+      {% include "@molecules/hero-article/hero-article.twig" with {
+        hero__title: label,
+        hero__description: content.field_deck[0],
+      } %}
+    {% endblock %}
+    {% block section_content %}
+      <div {{ bem('content', [], article__base_class) }}>
+        {{ content.body }}
+        {% if content.book_navigation %}
+          {{ content.book_navigation }}
+        {% endif %}
+        {{ content.field_topics }}
+      </div>
+    {% endblock %}
+    {% block section_sidebar %}
+      {{ drupal_entity('block', 'footer_newsletter') }}
+    {% endblock %}
+  {% endembed %}
+</article>

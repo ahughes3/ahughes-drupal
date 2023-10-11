@@ -1,0 +1,52 @@
+.node-episode {
+  > .section__wrapper > .section {
+    @include macro-spacing-block(false, true, false);
+
+    padding-top: 0;
+  }
+
+  .audio__wrapper {
+    margin-bottom: space(3);
+
+    @include small {
+      margin-bottom: space(3.5);
+    }
+  }
+
+  .resource-node-hero {
+    .section {
+      @media (max-width: 959px) {
+        padding-bottom: 0;
+      }
+    }
+
+    .section__sidebar {
+      justify-content: flex-end;
+
+      a {
+        width: px2rem(144);
+        height: px2rem(144);
+
+        .resource-node-hero__image--is-episode {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .pattern {
+      margin-top: space(3.5);
+
+      @include large {
+        margin-top: 0;
+      }
+    }
+  }
+}

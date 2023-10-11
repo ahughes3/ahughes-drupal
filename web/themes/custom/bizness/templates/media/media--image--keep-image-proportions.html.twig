@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ */
+#}
+{% set caption_text = content.field_file_image_caption_text[0]['#context']['value'] %}
+{% set credit_text = content.field_file_image_citation[0]['#context']['value'] %}
+
+{% set caption_full_text = caption_text ~ " " ~ credit_text  %}
+
+{% if content %}
+  {{ content.field_media_image }}
+  {% if caption_text or credit_text %}
+    {% include '@molecules/caption/caption.twig' with {
+      caption_text: caption_full_text,
+    } %}
+  {% endif %}
+{% endif %}

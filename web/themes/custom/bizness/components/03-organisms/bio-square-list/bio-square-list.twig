@@ -1,0 +1,16 @@
+{#
+/**
+ * Displays bio square list info.
+ *
+ * Available variables:
+ * - bio_list: Guest list.
+ */
+#}
+{% set bio_square_list__base_class = 'bio-square-list' %}
+<div {{ bem(bio_square_list__base_class, bio_square_list__modifiers) }}>
+  {% block bio_elements %}
+    {% for bio_item in bio_list %}
+      {% include "@molecules/bio/square/square.twig" with bio_item %}
+    {% endfor %}
+  {% endblock %}
+</div>

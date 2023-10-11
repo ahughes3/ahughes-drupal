@@ -1,0 +1,14 @@
+links:
+  - text: RSS
+    icon: rss
+    href: https://www.google.com
+  - text: Apple Podcasts
+    icon: apple-podcast
+    href: https://www.google.com
+  - text: Spotify
+    icon: spotify
+    href: https://www.google.com
+  - text: Stitcher
+    icon: stitcher
+    href: https://www.google.com
+is_podcast: true

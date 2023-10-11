@@ -1,0 +1,165 @@
+section.layout,
+footer.footer {
+  @include macro-spacing-block();
+}
+
+section.layout {
+  &.layout--no-padding {
+    padding: 0;
+  }
+
+  &.layout--no-top-padding {
+    padding-top: 0;
+  }
+
+  &.layout--no-bottom-padding {
+    padding-bottom: 0;
+  }
+}
+
+.layout--white {
+  color: #171D21;
+  background-color: #FFFFFF;
+}
+
+.layout--light {
+  color: #171D21;
+  background: linear-gradient(47.31deg, clr(primary-dark, 100) 0%, clr(primary-dark, 50) 100%);
+
+  & + .layout--light {
+    border-top: 1px solid clr(primary-dark, 200);
+  }
+}
+
+.layout--dark {
+  color: #FFFFFF;
+  background-color: #01070B;
+}
+
+// Section styles.
+.section {
+  @include macro-spacing-block();
+
+  display: grid;
+  position: relative;
+  column-gap: space(1.5);
+  padding-left: space(1.5);
+  padding-right: space(1.5);
+  grid-template-columns: repeat(6, 1fr);
+
+  @include small {
+    padding-left: space(2);
+    padding-right: space(2);
+  }
+
+  @include large {
+    column-gap: space(2);
+    padding-left: 0;
+    padding-right: 0;
+    grid-template-columns: space(1) repeat(12, 1fr) space(1);
+  }
+
+  @include xl {
+    grid-template-columns: space(2.5) repeat(12, 1fr) space(2.5);
+  }
+
+  @include xxxl {
+    grid-template-columns: 1fr repeat(12, 92px) 1fr;
+  }
+}
+
+.section.padding-top-0 {
+  padding-top: 0;
+}
+
+.section.padding-bottom-0 {
+  padding-bottom: 0;
+}
+
+.section__header {
+  grid-column: 1 / -1;
+}
+
+.section__content {
+  grid-column: 1 / 7;
+  margin-bottom: space(4.5);
+
+  @include large {
+    margin-bottom: 0;
+    grid-column: 2 / -2;
+  }
+}
+
+.section__sidebar {
+  display: flex;
+  row-gap: space(3);
+  grid-column: 1 / 7;
+  position: relative;
+  flex-direction: column;
+
+  @include large {
+    grid-column: 10 / 15;
+  }
+
+  @include xl {
+    grid-column: 11 / 15;
+  }
+}
+
+.section__sidebar--grid-width {
+  @include large {
+    grid-column: 10 / 14;
+  }
+
+  @include xl {
+    grid-column: 11 / 14;
+  }
+}
+
+.sidebar__wrapper {
+  @include large {
+    display: grid;
+    column-gap: space(2);
+    grid-template-rows: max-content max-content;
+    grid-template-columns: repeat(4, 1fr) space(1);
+  }
+
+  @include xl {
+    grid-template-columns: repeat(3, 1fr) space(2.5);
+  }
+
+  @include xxxl {
+    grid-template-columns: repeat(3, 92px) 1fr;
+  }
+
+  .grid-width {
+    grid-column: 1 / -1;
+
+    @include large {
+      grid-column: 1 / -2;
+    }
+  }
+
+  .full-width {
+    @include large {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+.sidebar__content {
+  grid-column: 1 / -2;
+}
+
+.section--with-sidebar {
+  .section__content {
+    @include large {
+      grid-column: 2 / 10;
+      padding-right: space(1);
+    }
+
+    @include xl {
+      padding-right: 0;
+    }
+  }
+}

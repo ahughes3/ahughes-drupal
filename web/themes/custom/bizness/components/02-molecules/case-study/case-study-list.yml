@@ -1,0 +1,52 @@
+case_studies__heading: 'Mike’s Featured work ...'
+case_studies__url: '#'
+case_studies__link_text: 'See all our work  '
+case_studies__items:
+  - case_study__title: 'Georgia Public Broadcasting'
+    case_study__content: 'Creating a new standard for digital experiences in public media'
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-gpb.svg'
+      alt: 'client logo'
+    case_study__url: '#'
+  - case_study__title: 'New Relic'
+    case_study__content: 'Designing for faster, more effective communication between a cloud-based platform and its audience'
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-new-relic.svg'
+      alt: 'client logo'
+    case_study__url: '#'
+  - case_study__title: 'State of Georgia'
+    case_study__content: "Building Georgia's digital future"
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-state-of-georgia.svg'
+      alt: 'client logo'
+    case_study__url: '#'
+  - case_study__title: 'Edutopia'
+    case_study__content: 'Building a new edutopia on decoupled Drupal 8'
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-isu.svg'
+      alt: 'client logo'
+    case_study__url: '#'
+  - case_study__title: 'IBM Investor Relations'
+    case_study__content: 'Designing and building a future-proof and on-brand system for Drupal'
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-ibm.svg'
+      alt: 'client logo'
+    case_study__url: '#'
+  - case_study__title: 'SyFy'
+    case_study__content: 'Creating an out of this world experience for science fiction fans'
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-syfy.svg'
+      alt: 'client logo'
+    case_study__url: '#'
+  - case_study__title: 'Google'
+    case_study__content: 'AMP-ing up Drupal'
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-google-2.svg'
+      alt: 'client logo'
+    case_study__url: '#'
+  - case_study__title: 'Pantheon'
+    case_study__content: 'An amazing, fast new site for an amazingly fast hosting platform'
+    case_study__image:
+      src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-pantheon-2.svg'
+      alt: 'client logo'
+    case_study__url: '#'

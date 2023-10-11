@@ -1,0 +1,29 @@
+- featured_case_study__heading: 'Client Name'
+  featured_case_study__body: 'Case study title displays right here'
+  featured_case_study__cta:
+    url: '#'
+    title: 'Read Case Study'
+  featured_case_study__image: 
+    src: 'https://unsplash.it/1040/600'
+    alt: 'State Building'
+  featured_case_study__modifiers:
+    - 'image-left'
+    - 'black'
+    - 'full-width'
+- featured_case_study__heading: 'We create harmony'
+  featured_case_study__body: "Among your team, your content, your audience, and your CMS. After launch, we can ensure your project's continued success with enterprise Drupal support."
+  featured_case_study__cta:
+    url: '#'
+    title: 'Our Services'
+  featured_case_study__graphic: true
+- featured_case_study__heading: 'Client Name'
+  featured_case_study__body: 'Case study title displays right here'
+  featured_case_study__cta:
+    url: '#'
+    title: 'Read Case Study'
+  featured_case_study__image: 
+    src: 'https://unsplash.it/1040/600'
+    alt: 'State Building'
+  featured_case_study__modifiers:
+    - 'image-right'
+    - 'full-width'

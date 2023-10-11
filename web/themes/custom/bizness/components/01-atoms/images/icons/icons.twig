@@ -1,0 +1,14 @@
+<p>
+  To use any of these icons please use the 01-atoms/images/icons/_icon.twig component passing as the icon_name any of the names listed below the icons below.
+</p>
+<div class="icons-demo" id="icons">
+  {% for item in icons %}
+    <div class="icons-demo__item">
+      {% include "@atoms/images/icons/_icon.twig" with {
+        icon_name: item
+      } %}
+      <pre>{{ item }}</pre>
+    </div>
+  {% endfor %}
+</div>
+<br>

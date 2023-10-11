@@ -1,0 +1,99 @@
+/* Toggle */
+
+.toggle-expand {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  border: 0;
+  padding: px2rem(20) space(1);
+  width: space(4);
+  height: space(4);
+  margin: 0;
+  background-color: clr(grayscale, 1000);
+  transition: background-color 0.3s linear;
+
+  @include small {
+    padding: space(1.5) space(1.5);
+    height: space(5);
+    width: space(5);
+  }
+
+  @include large {
+    display: none;
+  }
+
+  &:hover {
+    background-color: clr(primary, 800);
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 4px solid clr(secondary,700);
+    outline-offset: -4px;
+  }
+
+  /* See main-menu.js */
+  &--open {
+    z-index: 999;
+
+    &::after {
+      left: 0;
+
+      @include large {
+        display: none;
+      }
+    }
+  }
+}
+
+.toggle-expand__open {
+  display: block;
+
+  .toggle-expand--open & {
+    display: none;
+  }
+}
+
+.toggle-expand--open .toggle-expand__line {
+  width: space(2.5);
+
+  &--first {
+    transform: rotate(45deg);
+  }
+
+  &--second {
+    opacity: 0;
+    transform: translateY(px2rem(10));
+  }
+
+  &--third {
+    transform: rotate(-45deg);
+  }
+}
+
+.toggle-expand__menu-icon-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(9.5);
+}
+
+.toggle-expand__line {
+  @include transition(all, 0.2s, linear);
+
+  display: block;
+  width: 100%;
+  height: px2rem(1.5);
+  background: clr(grayscale, 0);
+  transition: all 0.2s linear;
+  transform-origin: px2rem(5);
+}
+
+.toggle-expand__close {
+  display: none;
+
+  .toggle-expand--open & {
+    display: block;
+  }
+}

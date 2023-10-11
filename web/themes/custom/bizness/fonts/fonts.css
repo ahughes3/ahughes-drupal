@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Circular';
+  src: url('Circular/Circular-Bold.woff2') format('woff2'),
+    url('Circular/Circular-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('Circular/Circular-BoldItalic.woff2') format('woff2'),
+    url('Circular/Circular-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('Circular/Circular-Medium.woff2') format('woff2'),
+    url('Circular/Circular-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('Circular/Circular-MediumItalic.woff2') format('woff2'),
+    url('Circular/Circular-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('Circular/Circular-Book.woff2') format('woff2'),
+    url('Circular/Circular-Book.woff') format('woff');
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('Circular/Circular-BookItalic.woff2') format('woff2'),
+    url('Circular/Circular-BookItalic.woff') format('woff');
+  font-weight: 450;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBMPlexMono';
+  src: url('IBMPlexMono/IBMPlexMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBMPlexMono';
+  src: url('IBMPlexMono/IBMPlexMono-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBMPlexMono';
+  src: url('IBMPlexMono/IBMPlexMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBMPlexMono';
+  src: url('IBMPlexMono/IBMPlexMono-BoldItalic.ttf')
+    format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

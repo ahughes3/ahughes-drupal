@@ -1,0 +1,64 @@
+{#
+/**
+ * Available variables:
+ * - intro_hero__deck: Header component.
+ * - intro_hero__title: Preheader label.
+ * - intro_hero__featured_content: Reference to featured content, including:
+ *   - content: Featured content title.
+ *   - url: Featured content url.
+ * - intro_hero__image: Image component, including:
+ *   - src: Image sources.
+ *   - alt: Image Alt Text.
+ * - intro_hero__link: CTA element, including:
+ *   - content: CTA link text.
+ *   - url: CTA link url.
+ * - intro_hero__brands: Image list.
+ */
+#}
+
+{% set extra_classes = ['intro-hero'] %}
+{% set intro_hero__base_class = 'intro-hero-tertiary' %}
+{% if  intro_hero__typewriter.is_active or intro_hero__brands %}
+  {% set extra_classes = extra_classes|merge(['has-animations'])%}
+{% endif %}
+
+{% if not intro_hero__brands %}
+  {% set extra_classes = extra_classes|merge(['no-logos']) %}
+{% endif %}
+
+<div {{ bem(intro_hero__base_class, [], [], extra_classes) }} {{ attributes }}>
+  {% if intro_hero__brands %}
+    <div class="hero__animation-toggle">
+        <input type="checkbox" class="visually-hidden" id="animation-toggle" name="animation-toggle" checked>
+        <label for="animation-toggle">Animations <span class="slider"><span>on</span></span></label>
+    </div>
+  {% endif %}
+  <div {{ bem('content', [], intro_hero__base_class) }}>
+    {% if intro_hero__title %}
+      {% if not intro_hero__disable_typewriter %}<div {{ bem('typewriter', [], intro_hero__base_class, 'typewriter') }}>{% endif %}
+        {% include '@atoms/text/text/01-paragraph.twig' with {
+          paragraph_modifiers: ['md'],
+          paragraph_base_class: 'label',
+          paragraph_content: intro_hero__title,
+        } %}
+      {% if not intro_hero__disable_typewriter %}</div>{% endif %}
+    {% endif %}
+    {% if intro_hero__deck %}
+      {% include "@atoms/text/headings/_heading.twig" with {
+        heading_level: 1,
+        heading: intro_hero__deck,
+        heading_modifiers: ['2xl'],
+      } %}
+    {% endif %}
+  </div>
+  {% include "@atoms/pattern/pattern.twig" %}
+  {% if intro_hero__brands %}
+    <div {{ bem('brands', [], intro_hero__base_class) }}>
+      {% block brands_content %}
+        {% include "@molecules/brands/brands.twig" with {
+          brand__items: intro_hero__brands,
+        } %}
+      {% endblock %}
+    </div>
+  {% endif %}
+</div>

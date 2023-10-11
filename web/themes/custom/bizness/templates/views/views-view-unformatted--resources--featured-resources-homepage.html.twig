@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+{# First element has a different display #}
+{% set bundle =  rows[0].content['#row']._entity.bundle %}
+{% if bundle == 'webinar' %}
+  {% set link_text = 'Watch the webinar' %}
+{% elseif bundle == 'episode' %}
+  {% set link_text = 'Listen the episode' %}
+{% else %}
+  {% set link_text = 'Read the article' %}
+{% endif %}
+
+{# All the other elements #}
+{% include "@molecules/featured-resource/primary/featured-resource-primary.twig" with {
+  resource__title: rows[0].content['#row']._entity.title.value,
+  resource__description: rows[0].content['#row']._entity.field_deck.value,
+  resource__link: {text: link_text, href: path('entity.node.canonical', {'node': rows[0].content['#row'].nid})},
+} %}
+
+{% embed "@organisms/featured-resources-list/secondary/featured-resources-list-secondary.twig" with {
+  resources__title: 'Resources',
+  resources__link: {text: 'See all', href: '/resources'}
+}%}
+
+  {% block resources %}
+    {% embed "@organisms/grid/grid.twig" with {
+        grid_type: '3col',
+    } %}
+      {% block grid_content %}
+        {% for row in rows %}
+          {% if loop.index > 1 %}
+            {% set bundle =  row.content['#row']._entity.bundle %}
+            {% if bundle == 'webinar' %}
+              {% set link_text = 'Watch' %}
+              {% set icon_type = 'play' %}
+            {% elseif bundle == 'episode' %}
+              {% set link_text = 'Listen' %}
+              {% set icon_type = 'headphones' %}
+            {% else %}
+              {% set link_text = 'Read' %}
+              {% set icon_type = 'bookmark' %}
+            {% endif %}
+            {% include "@molecules/featured-resource/secondary/featured-resource-secondary.twig" with {
+              resource__title: row.content['#row']._entity.title.value,
+              resource__link: {
+                text: link_text,
+                href: path('entity.node.canonical', {'node': row.content['#row'].nid}),
+                style: ['secondary']
+              },
+              resource__icon_type: icon_type,
+            } %}
+          {% endif %}
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

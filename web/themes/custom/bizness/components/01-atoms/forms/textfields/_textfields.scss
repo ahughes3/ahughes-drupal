@@ -1,0 +1,106 @@
+.main__content {
+  .form-item,
+  .mailchimp__small-print {
+    color: clr(text);
+    position: relative;
+    margin-bottom: space(3.5);
+
+    @include clearfix;
+  }
+
+  .mailchimp__small-print {
+    @extend .paragraph--md;
+  }
+
+  .form-item__label {
+    @extend .paragraph--sm;
+
+    display: flex;
+    margin-bottom: space(1);
+    font-weight: $font-medium;
+    color: clr(grayscale, 900);
+
+    &.form-required::after {
+      content: '*';
+      margin-left: space(0.5);
+      color: clr(primary, 800);
+    }
+  }
+
+  .input_wrapper:not(.submit):not(.checkbox):not(.radio) {
+    @include border-bottom($focusClr: clr(secondary, 800), $borderWidth: 1.5px, $bottom: -1.5px);
+
+    position: relative;
+    border-bottom: 1.5px solid clr(grayscale, 400);
+  }
+
+  .form-item__textfield:not([type="checkbox"], [type="radio"], [type="submit"]) {
+    width: 100%;
+    outline: none;
+    border-width: 0;
+    font-size: fontsize(18);
+    font-weight: $font-normal;
+    color: clr(grayscale, 600);
+    background-color: transparent;
+    padding: space(1) 0 space(0.5);
+
+    &:hover::placeholder {
+      color: clr(grayscale, 300);
+    }
+
+    &::placeholder {
+      color: clr(grayscale, 200);
+    }
+  }
+
+  .form-item__description {
+    margin-top: 0.3em;
+  }
+
+  .form-fieldset {
+    padding: 0;
+    border: none;
+    margin-bottom: 2em;
+
+    .form-item {
+      max-width: 31rem;
+    }
+  }
+
+  // Input Variant.
+  form.bg-black {
+    .form-item {
+      @include large {
+        max-width: none;
+      }
+    }
+
+    .form-item__label {
+      color: clr(grayscale, 0);
+    }
+
+    .input_wrapper {
+      border-color: clr(grayscale, 0);
+
+      &:hover {
+        &::after {
+          border-color: clr(secondary-light, 600);
+        }
+      }
+
+      &:focus-within {
+        &::after {
+          border-color: clr(secondary, 800);
+        }
+      }
+    }
+
+    .form-item__textfield {
+      color: clr(grayscale, 300);
+
+      &::placeholder {
+        color: clr(grayscale, 400);
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+@import 'breakpoints/**/*.scss';
+@import 'spacing/**/*.scss';
+@import 'defaults/**/*.scss';
+@import 'typography/**/*.scss';
+@import 'colors/**/*.scss';
+
+.status__list {
+  display: none;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-sans;
+  color: clr(grayscale, 900);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: clr(grayscale, 0);
+}
+
+// Storybook only styles, remove body padding.
+.sb-show-main.sb-main-padded {
+  padding: 0 !important;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+::-moz-selection {
+  color: clr(grayscale, 0);
+  background-color: clr(primary, 800);
+}
+
+::selection {
+  color: clr(grayscale, 0);
+  background-color: clr(primary, 800);
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.cl-table__wrapper {
+  padding: 1rem;
+}
+
+.cl-table {
+  width: 100%;
+  padding: 1rem;
+  max-width: 62rem;
+  border-spacing: 0;
+}
+
+h1.cl-table {
+  @extend .paragraph--2xl;
+
+  padding-bottom: space(1);
+  margin-bottom: space(3);
+  position: relative;
+
+  &::before {
+    content: '';
+    bottom: 0;
+    left: space(1);
+    width: px2rem(72);
+    height: px2rem(2);
+    position: absolute;
+    background-color: clr(primary, 800);
+  }
+}
+
+.cl-table__header {
+  text-align: start;
+  padding-bottom: space(1);
+  border-bottom: 1px solid clr(grayscale, 300);
+}
+
+.cl-table__body {
+  cursor: pointer;
+
+  &:hover {
+    background-color: clr(grayscale, 50);
+  }
+
+  td {
+    padding-top: space(1);
+    font-size: fontsize(14);
+    padding-bottom: space(1);
+    color: clr(grayscale, 500);
+    border-bottom: 1px solid clr(grayscale, 100);
+  }
+}
+
+.cl-table__variable {
+  color: clr(primary, 900);
+}
+
+.cl-spacing-visualization {
+  width: 50px;
+  height: 50px;
+  display: block;
+
+  @include gradient(primary-dark, 950);
+}
+
+.clipboard-item {
+  position: relative;
+}
+
+.toast-copy {
+  @include gradient(grayscale, 0, 0);
+
+  border: 1px solid clr(grayscale, 100);
+  position: absolute;
+  top: 100%;
+  left: 7px;
+  z-index: 3;
+  transition: 1s ease-in-out opacity;
+  padding: space(0.5) space(1);
+  font-size: fontsize(14);
+
+  pre {
+    left: 0;
+    width: 100%;
+    padding: space(0.5);
+    margin: 0 0 space(1);
+    background-color: clr(secondary-light, 100);
+  }
+
+  &.hide {
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

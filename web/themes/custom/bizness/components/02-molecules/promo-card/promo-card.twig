@@ -1,0 +1,37 @@
+{#
+/**
+ * Available variables:
+ * - card__title: Component title.
+ * - card__body: Component content.
+ * - card__cta: Component cta.
+ */
+#}
+
+{% set card__base_class = 'promo-card' %}
+
+<div {{ bem(card__base_class) }} {{ attributes }}>
+  <div {{ bem('inner', [], card__base_class) }} {{ attributes }}>
+    {% if card__title %}
+      {% include "@atoms/text/text/01-paragraph.twig" with {
+        paragraph_modifiers: ['md'],
+        paragraph_base_class: 'label',
+        paragraph_content: card__title,
+      } %}
+    {% endif %}
+    {% if card__body %}
+      {% include "@atoms/text/text/01-paragraph.twig" with {
+        paragraph_modifiers: ['sm'],
+        paragraph_content: card__body,
+      } %}
+    {% endif %}
+    {% if card__cta %}
+      {% include "@atoms/buttons/button.twig" with {
+        button_type: 'link',
+        button_icon: 'arrow',
+        button_url: card__cta.url,
+        button_modifiers: ['dark'],
+        button_content: card__cta.title,
+      } %}
+    {% endif %}
+  </div>
+</div>

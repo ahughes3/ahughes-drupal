@@ -1,0 +1,15 @@
+{% set stats_list__base_class = 'stats-list' %}
+
+<div {{ bem(stats_list__base_class) }}>
+  <div {{ bem('content', [], stats_list__base_class) }}>
+    <ul {{ bem('items', [], stats_list__base_class) }}>
+      {% block stats_list %}
+        {% for item in stats_list__items %}
+          <li {{ bem('item', [], stats_list__base_class) }}>
+            {% include "@molecules/stats/stats.twig" with item %}
+          </li>
+        {% endfor %}
+      {% endblock %}
+    </ul>
+  </div>
+</div>

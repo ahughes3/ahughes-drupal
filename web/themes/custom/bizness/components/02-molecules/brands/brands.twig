@@ -1,0 +1,21 @@
+{% set brands__base_class = 'brands' %}
+
+{% if brand__items %}
+  <div {{ bem(brands__base_class) }} role="presentation">
+    <ul {{ bem('items', [], brands__base_class) }}>
+      {% for key, item in brand__items %}
+        {% set isLast = key == brand__items|length - 1 ? 'last' : '' %}
+        <li {{ bem('item', [], brands__base_class, [isLast]) }}>
+          {% if item.src %}
+            {% include "@atoms/images/image/image.twig" with {
+              image_src: item.src,
+              image_alt: item.alt,
+            } %}
+          {% else %}
+            {{ item }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
