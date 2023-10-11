@@ -4,8 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f995ebe4d6e9131a17e85998e64247d",
+    "content-hash": "e6c27e0b82b097091a00da4042e3d20f",
     "packages": [
+        {
+            "name": "agaric/oxford-comma",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:agaric/php/oxford-comma.git",
+                "reference": "62afcb36604999659fcfec4502c120152b39bfc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/agaric%2Fphp%2Foxford-comma/repository/archive.zip?sha=62afcb36604999659fcfec4502c120152b39bfc6",
+                "reference": "62afcb36604999659fcfec4502c120152b39bfc6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/OxfordComma.php"
+                ],
+                "psr-4": {
+                    "Agaric\\OxfordComma\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "benjamin melançon",
+                    "email": "ben@agaric.com",
+                    "homepage": "https://agaric.coop/mlncn",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A function to take a list of terms and return them in an English phrase with proper punctuation 'red, black, and white' or 'red and black'.",
+            "homepage": "https://gitlab.com/agaric/php/oxford-comma",
+            "keywords": [
+                "Lists",
+                "Oxford comma",
+                "display",
+                "output",
+                "punctuation",
+                "text"
+            ],
+            "time": "2020-03-26T13:04:29+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "1.3.0",
@@ -2527,6 +2577,55 @@
             }
         },
         {
+            "name": "drupal/components",
+            "version": "3.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/components.git",
+                "reference": "3.0.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/components-3.0.0-beta3.zip",
+                "reference": "3.0.0-beta3",
+                "shasum": "47ced4332f0a655ca38ae1b54e97a8e78d59f0bc"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.0-beta3",
+                    "datestamp": "1651759488",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "JohnAlbin",
+                    "homepage": "https://www.drupal.org/user/32095",
+                    "email": "virtually.johnalbin@gmail.com"
+                },
+                {
+                    "name": "RobLoach",
+                    "homepage": "https://www.drupal.org/user/61114"
+                }
+            ],
+            "description": "Registers folders of components defined by your theme or module as Twig namespaces",
+            "homepage": "https://drupal.org/project/components",
+            "support": {
+                "source": "https://git.drupalcode.org/project/components"
+            }
+        },
+        {
             "name": "drupal/contentimport",
             "version": "9.3.0",
             "source": {
@@ -3078,6 +3177,78 @@
                 "source": "https://git.drupalcode.org/project/dxpr_theme_helper",
                 "documentation": "https:/.dxpr.com/hc",
                 "issues": "https://dxpr.com/hc/tickets"
+            }
+        },
+        {
+            "name": "drupal/emulsify_twig",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/emulsify_twig.git",
+                "reference": "4.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/emulsify_twig-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "291883db32ca3f751a9501ec2aed77d2174d38e2"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0",
+                    "datestamp": "1676582809",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron Stanush",
+                    "homepage": "https://www.drupal.org/user/89718"
+                },
+                {
+                    "name": "amazingrando",
+                    "homepage": "https://www.drupal.org/user/609802"
+                },
+                {
+                    "name": "bjlewis2",
+                    "homepage": "https://www.drupal.org/user/223774"
+                },
+                {
+                    "name": "callinmullaney",
+                    "homepage": "https://www.drupal.org/user/2532054"
+                },
+                {
+                    "name": "ccjjmartin",
+                    "homepage": "https://www.drupal.org/user/3210801"
+                },
+                {
+                    "name": "codechefmarc",
+                    "homepage": "https://www.drupal.org/user/2952573"
+                },
+                {
+                    "name": "evanmwillhite",
+                    "homepage": "https://www.drupal.org/user/562168"
+                },
+                {
+                    "name": "fk_bender",
+                    "homepage": "https://www.drupal.org/user/3539842"
+                }
+            ],
+            "description": "Provides Twig functions for use with Emulsify",
+            "homepage": "http://emulsify.info",
+            "support": {
+                "source": "https://git.drupalcode.org/project/emulsify_twig"
             }
         },
         {
@@ -4134,6 +4305,76 @@
             "homepage": "https://www.drupal.org/project/inline_entity_form",
             "support": {
                 "source": "https://git.drupalcode.org/project/inline_entity_form"
+            }
+        },
+        {
+            "name": "drupal/inotherwords",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/inotherwords.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inotherwords-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "bb9abce972fffc662affe34d691fa6d1c6da6709"
+            },
+            "require": {
+                "agaric/oxford-comma": "^1.2",
+                "drupal/core": "^8 || ^9 || ^10",
+                "kwn/number-to-words": "^1.8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1686885306",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "cedewey",
+                    "homepage": "https://www.drupal.org/user/38694"
+                },
+                {
+                    "name": "gnuget",
+                    "homepage": "https://www.drupal.org/user/992990"
+                },
+                {
+                    "name": "lelkneralfaro",
+                    "homepage": "https://www.drupal.org/user/3577260"
+                },
+                {
+                    "name": "MegaKeegMan",
+                    "homepage": "https://www.drupal.org/user/3620027"
+                },
+                {
+                    "name": "mlncn",
+                    "homepage": "https://www.drupal.org/user/64383"
+                }
+            ],
+            "description": "Provides a field formatter for condensing sequential lists into shorter text.",
+            "homepage": "https://drupal.org/project/inotherwords",
+            "keywords": [
+                "content",
+                "drupal",
+                "field",
+                "field formatter",
+                "ux"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/inotherwords",
+                "issues": "https://www.drupal.org/project/issues/inotherwords"
             }
         },
         {
@@ -7057,6 +7298,59 @@
                 "source": "https://github.com/itamair/geoPHP/tree/1.5"
             },
             "time": "2023-04-26T23:16:44+00:00"
+        },
+        {
+            "name": "kwn/number-to-words",
+            "version": "1.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kwn/number-to-words.git",
+                "reference": "df61dc0f2fffe49f87319c9bcf1f7f44669152c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kwn/number-to-words/zipball/df61dc0f2fffe49f87319c9bcf1f7f44669152c7",
+                "reference": "df61dc0f2fffe49f87319c9bcf1f7f44669152c7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6|>=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.9",
+                "squizlabs/php_codesniffer": "^3.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NumberToWords\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Karol Wnuk",
+                    "email": "k.wnuk@ascetic.pl"
+                }
+            ],
+            "description": "Multi language standalone PHP number to words converter. Fully tested, open for extensions and new languages.",
+            "keywords": [
+                "currency",
+                "money",
+                "number",
+                "numbers",
+                "string",
+                "to",
+                "words"
+            ],
+            "support": {
+                "issues": "https://github.com/kwn/number-to-words/issues",
+                "source": "https://github.com/kwn/number-to-words/tree/1.13.0"
+            },
+            "time": "2021-06-23T20:47:44+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -15522,6 +15816,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/charts": 15,
+        "drupal/components": 10,
         "drupal/google_analytics_reports": 15,
         "drupal/inline_entity_form": 5,
         "drupal/linkit": 10,
