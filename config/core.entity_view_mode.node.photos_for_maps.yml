@@ -1,0 +1,10 @@
+uuid: 712d5b75-6ba2-40de-92dc-a2c53c6ea8dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.photos_for_maps
+label: 'Photos for Maps'
+targetEntityType: node
+cache: true

@@ -1,0 +1,29 @@
+uuid: 5a192eee-5170-4932-8d44-135ace54d7d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_artist
+    - node.type.song
+    - taxonomy.vocabulary.artists
+id: node.song.field_artist
+field_name: field_artist
+entity_type: node
+bundle: song
+label: 'Written By'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      artists: artists
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

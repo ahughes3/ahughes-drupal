@@ -1,0 +1,48 @@
+uuid: 89ac35ab-c90d-4655-80f4-c69087712548
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.photos.body
+    - field.field.node.photos.field_city
+    - field.field.node.photos.field_location
+    - field.field.node.photos.field_people
+    - field.field.node.photos.field_photos
+    - field.field.node.photos.field_tags
+    - node.type.photos
+  module:
+    - text
+    - user
+id: node.photos.teaser
+targetEntityType: node
+bundle: photos
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_city: true
+  field_location: true
+  field_people: true
+  field_photos: true
+  langcode: true

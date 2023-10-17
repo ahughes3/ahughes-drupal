@@ -1,0 +1,10 @@
+uuid: da016187-1ff7-4669-bd40-0b969a1de351
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.latest_video_home_page
+label: 'Home Page'
+targetEntityType: node
+cache: true

@@ -1,0 +1,8 @@
+uuid: 92907cb9-eabc-4283-8a22-24452b2091c5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Book Category'
+vid: book_category
+description: ''
+weight: -7

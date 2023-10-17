@@ -1,0 +1,13 @@
+uuid: be202e0c-8113-4a1f-80be-e5fd4969f97f
+langcode: en
+status: true
+dependencies:
+  enforced:
+    theme:
+      - alivero
+_core:
+  default_config_hash: 4EJOp3KprXU-wEyo2kbp7aiCPXuoZszpTrFwLUDu_Sg
+id: alivero_medium
+label: 'alivero Medium'
+locked: false
+pattern: 'j  F,  Y'

@@ -1,0 +1,11 @@
+uuid: 39bbbeaf-a448-4b36-bf14-c9a414978337
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.music
+id: node.music
+target_entity_type_id: node
+target_bundle: music
+default_langcode: site_default
+language_alterable: false

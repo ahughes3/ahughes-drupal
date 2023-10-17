@@ -1,0 +1,21 @@
+uuid: 57a42a83-b97e-4676-849e-94bac8168a85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location
+    - node.type.photos
+  module:
+    - geofield
+id: node.photos.field_location
+field_name: field_location
+entity_type: node
+bundle: photos
+label: Location
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

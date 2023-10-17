@@ -1,0 +1,27 @@
+uuid: 66b60d42-c174-4054-95a1-276df097a817
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - alivero
+_core:
+  default_config_hash: D_8WHtzZWdHf1SM8EGo-UWUHbdJJJfYKAR9lkKNWhWE
+id: alivero_main_menu
+theme: alivero
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

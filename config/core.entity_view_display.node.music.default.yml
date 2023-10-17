@@ -1,0 +1,101 @@
+uuid: 40740962-565d-448b-9c05-6219697f6233
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.music.body
+    - field.field.node.music.field_artist
+    - field.field.node.music.field_cover_art
+    - field.field.node.music.field_external_streaming_links
+    - field.field.node.music.field_music_type
+    - field.field.node.music.field_producers
+    - field.field.node.music.field_release_date
+    - field.field.node.music.field_songs
+    - node.type.music
+  module:
+    - datetime
+    - link
+    - text
+    - user
+id: node.music.default
+targetEntityType: node
+bundle: music
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_artist:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_cover_art:
+    type: entity_reference_entity_view
+    label: visually_hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_external_streaming_links:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_music_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_producers:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_release_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: olivero_medium
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_songs:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

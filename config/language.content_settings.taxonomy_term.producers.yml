@@ -1,0 +1,11 @@
+uuid: c7baf9a5-f956-4b2e-a5da-22452a4baffe
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.producers
+id: taxonomy_term.producers
+target_entity_type_id: taxonomy_term
+target_bundle: producers
+default_langcode: site_default
+language_alterable: false

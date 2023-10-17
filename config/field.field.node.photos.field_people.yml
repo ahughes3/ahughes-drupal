@@ -1,0 +1,29 @@
+uuid: 7ecc72e1-308f-44c7-b0dd-43f296722bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_people
+    - node.type.photos
+    - taxonomy.vocabulary.people
+id: node.photos.field_people
+field_name: field_people
+entity_type: node
+bundle: photos
+label: People
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      people: people
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: people
+field_type: entity_reference

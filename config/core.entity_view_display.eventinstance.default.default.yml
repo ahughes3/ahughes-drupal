@@ -1,0 +1,43 @@
+uuid: d644d1c4-35d5-4d88-9cfe-9f30d512e2ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - recurring_events.eventinstance_type.default
+  module:
+    - datetime_range
+    - text
+_core:
+  default_config_hash: lFFUFIZPBUZQjrIYYvP6U1hzVLGjKMl0DYK93zPM_80
+id: eventinstance.default.default
+targetEntityType: eventinstance
+bundle: default
+mode: default
+content:
+  date:
+    type: daterange_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short
+      separator: '-'
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true

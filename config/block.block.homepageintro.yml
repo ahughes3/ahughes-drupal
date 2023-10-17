@@ -1,0 +1,30 @@
+uuid: 832bcab4-7f9e-48ce-9f7c-5d5cf37741e9
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:e93aa3ae-97d8-42e5-8b8b-c4efbfedb536'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: homepageintro
+theme: olivero
+region: highlighted
+weight: -5
+provider: null
+plugin: 'block_content:e93aa3ae-97d8-42e5-8b8b-c4efbfedb536'
+settings:
+  id: 'block_content:e93aa3ae-97d8-42e5-8b8b-c4efbfedb536'
+  label: 'Home Page intro'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

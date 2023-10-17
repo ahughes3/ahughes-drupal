@@ -1,0 +1,22 @@
+uuid: 41266651-c2bd-4659-9b17-ee073ac4a375
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - alivero
+_core:
+  default_config_hash: 4Hsgj3Xfw_xKVVF3Yf0VrM8BXxat3VYM2dGhz7j_maQ
+id: alivero_help
+theme: alivero
+region: content_above
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,19 @@
+uuid: 3f80b803-2f31-4c6e-97f0-e08e5421d6dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_lyrics
+field_name: field_lyrics
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: bd3c0432-f262-4381-a144-42f2ae23153b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: art
+label: 'Art Content Type'
+type: 'canonical_entities:node'
+pattern: 'art/[node:title]'
+selection_criteria:
+  aed00e8f-5aa6-4da5-a4db-9cf31dac34d0:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: aed00e8f-5aa6-4da5-a4db-9cf31dac34d0
+    context_mapping:
+      node: node
+    bundles:
+      art: art
+selection_logic: and
+weight: -5
+relationships: {  }

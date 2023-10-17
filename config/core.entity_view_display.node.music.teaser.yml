@@ -1,0 +1,44 @@
+uuid: 82cf060b-6d82-40d8-9098-0f6755dd6050
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.music.body
+    - field.field.node.music.field_artist
+    - field.field.node.music.field_cover_art
+    - field.field.node.music.field_external_streaming_links
+    - field.field.node.music.field_music_type
+    - field.field.node.music.field_producers
+    - field.field.node.music.field_release_date
+    - field.field.node.music.field_songs
+    - node.type.music
+  module:
+    - user
+id: node.music.teaser
+targetEntityType: node
+bundle: music
+mode: teaser
+content:
+  field_music_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  field_artist: true
+  field_cover_art: true
+  field_external_streaming_links: true
+  field_producers: true
+  field_release_date: true
+  field_songs: true
+  langcode: true

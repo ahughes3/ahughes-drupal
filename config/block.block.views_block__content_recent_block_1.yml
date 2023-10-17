@@ -1,0 +1,24 @@
+uuid: e8015323-1c7a-4c6e-a86f-4584aca21ba0
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.content_recent
+  module:
+    - views
+  theme:
+    - olivero
+id: views_block__content_recent_block_1
+theme: olivero
+region: sidebar
+weight: -6
+provider: null
+plugin: 'views_block:content_recent-block_1'
+settings:
+  id: 'views_block:content_recent-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

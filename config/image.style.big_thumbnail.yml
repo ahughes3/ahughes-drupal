@@ -1,0 +1,15 @@
+uuid: a9d48308-d88e-4be8-9a4d-2bcfcbb90e42
+langcode: en
+status: true
+dependencies: {  }
+name: big_thumbnail
+label: 'Big Thumbnail'
+effects:
+  bd03af7a-5080-459a-8e17-50de969170db:
+    uuid: bd03af7a-5080-459a-8e17-50de969170db
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1500
+      height: 1500
+      anchor: center-center

@@ -1,0 +1,21 @@
+uuid: fdf3572b-3d03-476a-940c-2d72051623f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bookshop_org_button
+    - node.type.books
+  module:
+    - text
+id: node.books.field_bookshop_org_button
+field_name: field_bookshop_org_button
+entity_type: node
+bundle: books
+label: 'Bookshop.org Button'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

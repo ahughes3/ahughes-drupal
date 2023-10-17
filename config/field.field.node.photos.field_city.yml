@@ -1,0 +1,55 @@
+uuid: 3c9de3f5-5171-4f9f-a592-eb7b5dcdf4c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_city
+    - node.type.photos
+  module:
+    - address
+id: node.photos.field_city
+field_name: field_city
+entity_type: node
+bundle: photos
+label: City
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    langcode: null
+    country_code: US
+    administrative_area: ''
+    locality: ''
+    dependent_locality: null
+    postal_code: null
+    sorting_code: null
+    address_line1: null
+    address_line2: null
+    organization: null
+    given_name: null
+    additional_name: null
+    family_name: null
+default_value_callback: ''
+settings:
+  available_countries: {  }
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+    addressLine1:
+      override: hidden
+    addressLine2:
+      override: hidden
+    postalCode:
+      override: hidden
+    sortingCode:
+      override: hidden
+  fields: {  }
+field_type: address

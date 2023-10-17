@@ -1,0 +1,23 @@
+uuid: 0045443f-ff68-4250-a266-0e37491c6920
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - alivero
+_core:
+  default_config_hash: b1MnW0cvDYblH4xxu6hmJgZzclpV6i2BANgY6c4ewNQ
+id: alivero_search_form_wide
+theme: alivero
+region: secondary_menu
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

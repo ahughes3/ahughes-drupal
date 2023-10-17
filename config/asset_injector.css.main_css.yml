@@ -1,0 +1,36 @@
+uuid: 33612ee8-6758-4bba-9b31-d6be3d3174b4
+langcode: en
+status: true
+dependencies: {  }
+id: main_css
+label: 'Global CSS'
+code: |-
+  .field--name-field-media-oembed-video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
+
+  /* Then style the iframe to fit in the container div with full height and width */
+  .media-oembed-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /* IMAGE ADJUSTMENTS */
+
+  .field--name-field-photos img {
+    margin-bottom: 30px;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

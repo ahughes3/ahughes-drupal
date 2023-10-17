@@ -1,0 +1,22 @@
+uuid: e134c3b5-9174-4efe-9364-0710f62ae215
+langcode: en
+status: true
+dependencies:
+  theme:
+    - alivero
+_core:
+  default_config_hash: W4n4uQdG9-kQvh_TJg2E0B4sfiCWMzkiGqjyvesVruk
+id: alivero_primary_local_tasks
+theme: alivero
+region: highlighted
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

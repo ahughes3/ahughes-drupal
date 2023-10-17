@@ -1,0 +1,22 @@
+uuid: 65acbbad-1a90-4493-b091-0e50fbd6e00f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: music
+label: Music
+type: 'canonical_entities:node'
+pattern: 'music/[node:field_music_type]/[node:title]'
+selection_criteria:
+  4dbd32cc-6428-4f5a-bc3b-74842740ee0e:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 4dbd32cc-6428-4f5a-bc3b-74842740ee0e
+    context_mapping:
+      node: node
+    bundles:
+      music: music
+selection_logic: and
+weight: -5
+relationships: {  }

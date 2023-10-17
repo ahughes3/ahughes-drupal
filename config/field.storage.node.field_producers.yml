@@ -1,0 +1,20 @@
+uuid: c75b4b2f-55b5-42e8-b2f0-f2ba21562f24
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_producers
+field_name: field_producers
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

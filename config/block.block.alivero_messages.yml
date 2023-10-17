@@ -1,0 +1,22 @@
+uuid: a174077b-e16e-428b-8939-97477c151cd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alivero
+_core:
+  default_config_hash: dFmoYkzvIqTiD5QsP1qwxxBZxT0W-Y4ZG06eHRyu4f0
+id: alivero_messages
+theme: alivero
+region: highlighted
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

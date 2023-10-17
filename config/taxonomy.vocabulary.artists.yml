@@ -1,0 +1,8 @@
+uuid: 116abdb0-c665-410a-92dd-d2434bb8c805
+langcode: en
+status: true
+dependencies: {  }
+name: Artists
+vid: artists
+description: ''
+weight: -10

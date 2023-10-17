@@ -1,0 +1,44 @@
+uuid: 5855a6a9-47e4-47e6-a22a-360bfec0d2bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.art.body
+    - field.field.node.art.field_artist
+    - field.field.node.art.field_picture
+    - field.field.node.art.field_year
+    - image.style.max_325x325
+    - node.type.art
+  module:
+    - image
+    - user
+id: node.art.teaser
+targetEntityType: node
+bundle: art
+mode: teaser
+content:
+  field_artist:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_picture:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: max_325x325
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_year: true
+  langcode: true
+  links: true

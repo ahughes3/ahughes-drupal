@@ -1,0 +1,23 @@
+uuid: d7c8848b-e676-41c2-abd1-c0aaa8198469
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_currently_reading
+    - node.type.books
+id: node.books.field_currently_reading
+field_name: field_currently_reading
+entity_type: node
+bundle: books
+label: 'Currently Reading'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,22 @@
+uuid: 8c08f2de-2f77-4e5d-ab31-c537a80155ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alivero
+_core:
+  default_config_hash: td5SwTnDKru5XqH4DUB9u67BY6C_dpP-FG1ShlI3j7c
+id: alivero_powered
+theme: alivero
+region: footer_bottom
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

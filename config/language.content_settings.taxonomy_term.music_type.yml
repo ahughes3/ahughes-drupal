@@ -1,0 +1,11 @@
+uuid: bc86af82-af12-4fab-9833-8bb1894dc828
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.music_type
+id: taxonomy_term.music_type
+target_entity_type_id: taxonomy_term
+target_bundle: music_type
+default_langcode: site_default
+language_alterable: false

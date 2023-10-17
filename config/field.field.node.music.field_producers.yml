@@ -1,0 +1,29 @@
+uuid: e1a62f20-9077-4090-9d6a-ac6560304841
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_producers
+    - node.type.music
+    - taxonomy.vocabulary.people
+id: node.music.field_producers
+field_name: field_producers
+entity_type: node
+bundle: music
+label: Producers
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      people: people
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

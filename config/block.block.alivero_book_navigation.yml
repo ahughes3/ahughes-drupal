@@ -1,0 +1,23 @@
+uuid: aa358ef7-920f-4716-8552-84d0dc623e24
+langcode: en
+status: true
+dependencies:
+  module:
+    - book
+  theme:
+    - alivero
+_core:
+  default_config_hash: JadHhXcO1-6sVGhemjAmMSvmYCOerIbdzo64e9Q9eQI
+id: alivero_book_navigation
+theme: alivero
+region: sidebar
+weight: 0
+provider: null
+plugin: book_navigation
+settings:
+  id: book_navigation
+  label: 'Book navigation'
+  label_display: visible
+  provider: book
+  block_mode: 'book pages'
+visibility: {  }

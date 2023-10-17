@@ -1,0 +1,23 @@
+uuid: 37b8706a-212f-46f7-a67e-c6700b0f60b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - alivero
+_core:
+  default_config_hash: P32vXZhQ319YJaMM6aSsUHGS6mG-pWg950lieWLye3A
+id: alivero_syndicate
+theme: alivero
+region: social
+weight: 0
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

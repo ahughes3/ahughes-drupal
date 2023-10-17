@@ -1,0 +1,29 @@
+uuid: 47fc3806-2682-44d0-9cd8-c1385c4a9fdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_music_type
+    - node.type.music
+    - taxonomy.vocabulary.music_type
+id: node.music.field_music_type
+field_name: field_music_type
+entity_type: node
+bundle: music
+label: 'Music Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      music_type: music_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

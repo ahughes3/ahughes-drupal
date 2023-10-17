@@ -1,0 +1,20 @@
+uuid: d26a3cb9-1ba1-45c6-aa42-1384f750936c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_bookshop_org_button
+field_name: field_bookshop_org_button
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

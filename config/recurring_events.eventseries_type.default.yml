@@ -1,0 +1,9 @@
+uuid: ebdb6626-6461-460d-a104-5068ccdeaaae
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WhOawYzY2jtIq8ND2DpY_hhidNwqx1DcS221RHT2Exk
+label: Default
+id: default
+description: 'A default event series type.'

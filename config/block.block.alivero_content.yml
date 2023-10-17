@@ -1,0 +1,22 @@
+uuid: 25132faf-5d1b-4d3f-be63-1bcb543359ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alivero
+_core:
+  default_config_hash: L97ShHSI_tq7yRWS7ykgCiaLCwFHrabaRWMj7Sfrb80
+id: alivero_content
+theme: alivero
+region: content
+weight: -6
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

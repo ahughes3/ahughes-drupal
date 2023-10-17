@@ -1,0 +1,43 @@
+uuid: fa56060d-7f4d-45b9-9baa-8c15b0d25ae7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.books.body
+    - field.field.node.books.field_author
+    - field.field.node.books.field_book_cover
+    - field.field.node.books.field_bookshop_org_button
+    - field.field.node.books.field_buy_url
+    - field.field.node.books.field_category
+    - field.field.node.books.field_currently_reading
+    - node.type.books
+  module:
+    - text
+    - user
+id: node.books.teaser
+targetEntityType: node
+bundle: books
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_author: true
+  field_book_cover: true
+  field_bookshop_org_button: true
+  field_buy_url: true
+  field_category: true
+  field_currently_reading: true
+  langcode: true

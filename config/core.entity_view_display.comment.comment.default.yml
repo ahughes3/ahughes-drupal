@@ -1,0 +1,15 @@
+uuid: 0711babf-df03-4739-96f2-8bc0559c99b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+_core:
+  default_config_hash: 77Ye1kR-P6AaiGfEO8mnXNSr7nqtnP3PiiVBwJeGGMI
+id: comment.comment.default
+targetEntityType: comment
+bundle: comment
+mode: default
+content: {  }
+hidden:
+  links: true

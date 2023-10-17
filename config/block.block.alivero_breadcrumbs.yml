@@ -1,0 +1,22 @@
+uuid: 2f8c56b5-b5f5-40ad-ad00-e1338261fa03
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - alivero
+_core:
+  default_config_hash: WtL0JwoY1_WoDvdcSWM_caD58AmgfS_WncQBAvI6CQw
+id: alivero_breadcrumbs
+theme: alivero
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,14 @@
+uuid: 4ba7a88e-0fac-45f9-b0e0-d83daaba296c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - info@ahughes.biz
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''
