@@ -24,7 +24,7 @@
         "drupal/charts": "^5.0@alpha",
         "drupal/commerce": "^2.28",
         "drupal/commerce_shipping": "^2.2",
-        "drupal/components": "^3.0@beta",
+        "drupal/components": "^2.4",
         "drupal/contentimport": "^9.3",
         "drupal/dxpr_theme": "^1.2",
         "drupal/emulsify_twig": "^4.0",
