@@ -7,7 +7,7 @@
   
   <div class="row">
     {# Cover Image on the left #}
-    <div class="col-md-6 music-cover">
+    <div class="col-md-4 music-cover">
       {% if content.field_cover_art %}
         <div class="music-cover-image">
           {{ content.field_cover_art }}
@@ -16,7 +16,7 @@
     </div>
 
     {# Other fields on the right #}
-    <div class="col-md-6 music-details">
+    <div class="col-md-8 music-details">
       <div class="music-title">
         <h2>{{ label }}</h2> {# Title of the music #}
       </div>
@@ -24,12 +24,6 @@
       {% if content.field_music_type %}
         <div class="music-type">
           {{ content.field_music_type }}
-        </div>
-      {% endif %}
-
-      {% if content.field_songs %}
-        <div class="music-songs">
-          {{ content.field_songs }}
         </div>
       {% endif %}
     </div>
