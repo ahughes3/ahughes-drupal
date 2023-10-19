@@ -1,6 +1,0 @@
-case_study__title: 'Client Name'
-case_study__content: 'Case study subtitle or intro text displays right here like this'
-case_study__image:
-  src: 'https://bizness-redesign-static.vercel.app/images/logos-client/logo-google-2.svg'
-  alt: 'client logo'
-case_study__url: '#'

@@ -1,5 +1,0 @@
-resource__title: 'Resource Title Displays Here Like This'
-resource__description: 'Resource summary or subtitle displays here just like this.'
-resource__link:
-  text: 'Resource Link'
-  href: '#'

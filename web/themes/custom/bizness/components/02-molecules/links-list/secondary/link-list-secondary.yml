@@ -1,8 +1,0 @@
-link_list_secondary_heading: 'You may also like'
-link_list_secondary__items:
-  - link_content: 'Content Title Displays Here'
-    link_url: '#'
-  - link_content: 'Another Piece of Content Title Displays Here'
-    link_url: '#'
-  - link_content: 'Yet Another Content Title You May Have Interest In'
-    link_url: '#'

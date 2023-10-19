@@ -1,9 +1,0 @@
-stats_list__items:
-  - stats__heading: '527+'
-    stats_description: 'Total clients served since founding'
-  - stats__heading: '56'
-    stats_description: 'Repeat clients in the past 2 years'
-  - stats__heading: '10k+'
-    stats_description: 'Commits to Drupal core'
-  - stats__heading: '150+'
-    stats_description: 'Contributed Drupal modules'

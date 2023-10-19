@@ -1,8 +1,0 @@
-textures:
-- output_image_tag: true
-  image_src: '/textures/dots.svg'
-  image_alt: 'Dots texture'
-
-- output_image_tag: true
-  image_src: '/textures/pluses.svg'
-  image_alt: 'Pluses texture'

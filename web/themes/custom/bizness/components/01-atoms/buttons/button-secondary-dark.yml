@@ -1,5 +1,0 @@
-button_content: 'Text'
-button_url: '#'
-button_icon: 'play'
-button_modifiers:
-  - 'secondary-dark'

@@ -1,6 +1,0 @@
-list_section__has_heading: true
-list_section__title: Component Title (Optional)
-list_section__description: Optional component description text displays right here.
-list_section__link:
-  text: 'Optional Link'
-  href: '#'

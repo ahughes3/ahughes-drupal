@@ -1,9 +1,0 @@
-vertical_list__heading: 'Did you know?'
-vertical_list__heading_size:
-  - 'xs'
-vertical_list__heading_style:
-  - 'decorated'
-vertical_list__description: 'Did you know content displays here. Pellentesque suscipit fringilla libero eu ullamcorper. Cras risus eros, faucibus sit amet augue id, tempus pellentesque eros. In imperdiet tristique tincidunt. Integer lobortis lorem lorem.'
-vertical_list__modifiers:
-  - 'text'
-  - 'gray'
