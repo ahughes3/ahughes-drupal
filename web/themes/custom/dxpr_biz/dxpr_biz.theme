@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * @file
+ * DXPR Theme sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+// phpcs:disable
+/**
+ * Prepares variables for the html template. Adds node object.
+ *
+ * Default template: html.html.twig.
+ *
+ * See the html.html.twig template for the list of variables.
+ */
+function dxpr_biz_preprocess_html(&$variables) {
+  // If bootstrap basetheme is not loading bootstrap from CDN load it locally
+  // This is default behavior starting from DXPR Theme 8.x-1.1.3 and 7.x-2.7.3.
+  $bootstrap_cdn = theme_get_setting('cdn_provider');
+  if (!$bootstrap_cdn) {
+    $variables['#attached']['library'][] = 'dxpr_biz/bootstrap3';
+  }
+}
+
+/**
+ * Implements template_preprocess_page()
+ */
+function dxpr_biz_preprocess_page(&$variables) {
+
+  // CSS to load on every page.
+  $dxpr_theme_libraries = [
+    // Bootstrap TAILORING.
+    'dxpr_biz/bootstrap-3',
+    'dxpr_biz/bootstrap-theme',
+  // TODO: include only if needed.
+    'dxpr_biz/jquery-ui',
+    // DXPR THEME BASE.
+    'dxpr_biz/forms',
+    'dxpr_biz/layout',
+    'dxpr_biz/page-title',
+    'dxpr_biz/typography',
+    // DXPR THEME Components  //TODO: include only if needed.
+    'dxpr_biz/dxpr-theme-header--side',
+    'dxpr_biz/pager-prevnext',
+    'dxpr_biz/admin',
+    // Overrides   //TODO: include only if needed.
+    'dxpr_biz/drupal-webform',
+    'dxpr_biz/dxpr-theme-builder',
+    // HELPERS.
+    'dxpr_biz/helper-classes',
+  ];
+  foreach ($dxpr_theme_libraries as $dxpr_theme_library) {
+    $variables['#attached']['library'][] = $dxpr_theme_library;
+  }
+}
+
+/**
+ * Implements template_menu_local_tasks()
+ */
+function dxpr_biz_preprocess_menu_local_tasks(&$variables) {
+  if ($variables['secondary']) {
+    // Secondary tabs are styled with bootstrap pager CSS.
+    $variables['#attached']['library'][] = 'dxpr_biz/drupal-pager';
+  }
+}
+
+/**
+ * Implements template_preprocess_block()
+ */
+function dxpr_biz_preprocess_block(&$variables) {
+  // Include DXPR Theme full search block css library.
+  if ($variables['plugin_id'] === 'full_screen_search') {
+    $variables['#attached']['library'][] = 'dxpr_biz/dxpr-theme-full-screen-search';
+  }
+}
+
+/**
+ * Implements template_preprocess_region()
+ */
+function dxpr_biz_preprocess_region(&$variables) {
+  switch ($variables['region']) {
+    case 'secondary_header':
+      $variables['#attached']['library'][] = 'dxpr_biz/dxpr-theme-secondary-header';
+    case 'navigation':
+    case 'navigation_collapsible':
+      $variables['#attached']['library'][] = 'dxpr_biz/dxpr-theme-header';
+      $variables['#attached']['library'][] = 'dxpr_biz/dxpr-theme-header--top';
+      $variables['#attached']['library'][] = 'dxpr_biz/dxpr-theme-header--mobile';
+      break;
+
+    case 'footer':
+      $variables['#attached']['library'][] = 'dxpr_biz/footer-menu';
+      break;
+  }
+}
+
+/**
+ * Implements template_preprocess_breadcrumb()
+ */
+function dxpr_biz_preprocess_breadcrumb(&$variables) {
+  if ($variables['breadcrumb']) {
+    $variables['#attached']['library'][] = 'dxpr_biz/drupal-breadcrumbs';
+  }
+}
+
+/**
+ * Implements template_preprocess_comment()
+ */
+function dxpr_biz_preprocess_comment(&$variables) {
+  if ($variables['elements']['#comment']) {
+    $variables['#attached']['library'][] = 'dxpr_biz/drupal-comments';
+  }
+}
+
+/**
+ * Implements template_preprocess_pager()
+ */
+function dxpr_biz_preprocess_pager(&$variables) {
+  $variables['#attached']['library'][] = 'dxpr_biz/drupal-pager';
+}
+// phpcs:enable
