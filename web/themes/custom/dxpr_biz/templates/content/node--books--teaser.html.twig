@@ -32,19 +32,25 @@
         {{ title_suffix }}
 
         {# Author #}
-        <div>
-        {{ content.field_author }}
+        {% if content.field_author %}
+        <div class="book-author">
+          {{ content.field_author }}
         </div>
-        
+        {% endif %}
+
         {# Display brief book description #}
-        <div>
+        {% if content.body %}
+        <div class="book-body">
         {{ content.body }}
         </div>
+        {% endif %}
 
         {# Bookshop Button #}
-        <div>
-        {{ content.field_bookshop_org_button }}
+        {% if content.field_buy_url %}
+        <div class="book-buy-url">
+        {{ content.field_buy_url }}
         </div>
+        {% endif %}
 
       </div>
     </div>

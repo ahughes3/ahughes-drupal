@@ -21,11 +21,28 @@
         <h2>{{ label }}</h2> {# Title of the music #}
       </div>
 
-      {% if content.field_music_type %}
+
+       {# Music Type #}
+       {% if content.field_music_type %}
         <div class="music-type">
           {{ content.field_music_type }}
         </div>
-      {% endif %}
+       {% endif %}
+
+       {# Artists #}
+       {% if content.field_artist %}
+        <div class="music-artist">
+          {{ content.field_artist }}
+        </div>
+       {% endif %}
+
+       {# Listen On #}
+       {% if content.field_external_streaming_links %}
+        <div class="music-type">
+          {{ content.field_external_streaming_links }}
+        </div>
+       {% endif %}
+
     </div>
   </div>
 
