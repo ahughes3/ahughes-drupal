@@ -32,14 +32,14 @@
        {# Artists #}
        {% if content.field_artist %}
         <div class="music-artist">
-          <span>Performed by:</span>{{ content.field_artist }}
+          {{ content.field_artist }}
         </div>
        {% endif %}
 
        {# Listen On #}
        {% if content.field_external_streaming_links %}
         <div class="music-type">
-          <span>Listen On:</span>{{ content.field_external_streaming_links }}
+          {{ content.field_external_streaming_links }}
         </div>
        {% endif %}
 
