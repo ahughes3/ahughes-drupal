@@ -25,6 +25,7 @@
     <div class="col-sm-8">
       <div class="node__content">
 
+        <div>I'm currently reading</div>
         {{ title_prefix }}
         <h2{{ title_attributes.addClass('node__title') }}>
           <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -34,7 +35,7 @@
         {# Author #}
         {% if content.field_author %}
         <div class="book-author">
-          {{ content.field_author }}
+          <div>By {{ content.field_author }}</div>
         </div>
         {% endif %}
 
